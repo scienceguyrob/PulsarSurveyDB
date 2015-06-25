@@ -1,27 +1,13 @@
-# PulsarSurveyDB
-Code for the PulsarSurveyDB website.
+******************************************************************************************
 
-This is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+Pulsar SurveyDB
 
-Its distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+Author: Rob Lyon, School of Computer Science & Jodrell Bank Centre for Astrophysics,
+		University of Manchester, Kilburn Building, Oxford Road, Manchester M13 9PL.
 
-See <http://www.gnu.org/licenses/> for more license details.
-
-Author:       Rob Lyon
- 
-Contact:    rob@scienceguyrob.com or robert.lyon@postgrad.manchester.ac.uk
-
-Web:        http://www.scienceguyrob.com
-
-1.	Overview
-
-The HTML and resources for the Pulsar Survey DB website.
+Web:		http://www.scienceguyrob.com or http://www.cs.manchester.ac.uk
+			or alternatively http://www.jb.man.ac.uk
+******************************************************************************************
 
 1. Overview
 
@@ -36,116 +22,116 @@ The HTML and resources for the Pulsar Survey DB website.
     
         Here is a shortened varsion of the table.
 
-<table id="spec_table" class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Survey</th>
-            <th>Survey Year</th>
-            <th>Telescope</th>
-            <th>Centre Freq. (Mhz)</th>
-            <th>Bandwidth (Mhz)</th>
-            <th>Channel Width (Khz)</th>
-            <th>Channels</th>
-            <th>Sampling (&mu; sec)</th>
-            <th>Integration time (secs)</th>
-            <th>Beams</th>
-            <th>Pointings</th>
-            <th>Region</th>
-            <th>Region Sq. Deg.</th>
-        </tr>
-    </thead>
-        <tr>
-            <td>1st Molonglo Survey [<a href="#" onclick="$('#cite_pop_1').popup('show');">1</a>]</td>
-            <td>1968</td>
-            <td><span class="flagicon"><img alt="" src="images/Molonglo_32x32.png" width="22" height="15" class="thumbborder" />&#160;</span>Molonglo</td>
-            <td>408</td>
-            <td>4</td>
-            <td>2000</td>
-            <td>2</td>
-            <td>5000</td>
-            <td>15</td>
-            <td>1</td>
-            <td>?</td>
-            <td>|b| &lt; 10&deg;, |b| &gt; 10&deg;</td>
-            <td>22980</td>
-        </tr>
-    </table>
+            <table id="spec_table" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Survey</th>
+                        <th>Survey Year</th>
+                        <th>Telescope</th>
+                        <th>Centre Freq. (Mhz)</th>
+                        <th>Bandwidth (Mhz)</th>
+                        <th>Channel Width (Khz)</th>
+                        <th>Channels</th>
+                        <th>Sampling (&mu; sec)</th>
+                        <th>Integration time (secs)</th>
+                        <th>Beams</th>
+                        <th>Pointings</th>
+                        <th>Region</th>
+                        <th>Region Sq. Deg.</th>
+                    </tr>
+                </thead>
+                    <tr>
+                        <td>1st Molonglo Survey [<a href="#" onclick="$('#cite_pop_1').popup('show');">1</a>]</td>
+                        <td>1968</td>
+                        <td><span class="flagicon"><img alt="" src="images/Molonglo_32x32.png" width="22" height="15" class="thumbborder" />&#160;</span>Molonglo</td>
+                        <td>408</td>
+                        <td>4</td>
+                        <td>2000</td>
+                        <td>2</td>
+                        <td>5000</td>
+                        <td>15</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>|b| &lt; 10&deg;, |b| &gt; 10&deg;</td>
+                        <td>22980</td>
+                    </tr>
+                </table>
 
         It contains one row describing the table headers, and one entry describing the molongo survey. The
         first table data (<td></td>) entry describes the survey name. Here we see that listed as the "1st
         Molonglo Survey". Next to this, there is an anchor tag (<a></a>), inside two brackets i.e. [<a></a>].
         This contains the reference to the survey, which opens a new popup with details of the references, e.g.
 
-        ```<td>1st Molonglo Survey [<a href="#" onclick="$('#cite_pop_1').popup('show');">1</a>]</td>```
+        <td>1st Molonglo Survey [<a href="#" onclick="$('#cite_pop_1').popup('show');">1</a>]</td>
 
         This indicates that when the user clicks on the reference next to the survey name, popup "cite_pop_1"
         will open. The third table data element, describes the instrument used for the survey, along with a small
         image of the instrument itself, e.g.
 
-        ```<td><span class="flagicon"><img alt="" src="images/Molonglo_32x32.png" width="22" height="15" class="thumbborder" />&#160;</span>Molonglo</td>```
+        <td><span class="flagicon"><img alt="" src="images/Molonglo_32x32.png" width="22" height="15" class="thumbborder" />&#160;</span>Molonglo</td>
 
         To add a new entry, both of these must be updated accordingly. For example for a new imaginary survey "Rob 1", we
         would have to add a new entry as follows:
 
-<table id="spec_table" class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Survey</th>
-            <th>Survey Year</th>
-            <th>Telescope</th>
-            <th>Centre Freq. (Mhz)</th>
-            <th>Bandwidth (Mhz)</th>
-            <th>Channel Width (Khz)</th>
-            <th>Channels</th>
-            <th>Sampling (&mu; sec)</th>
-            <th>Integration time (secs)</th>
-            <th>Beams</th>
-            <th>Pointings</th>
-            <th>Region</th>
-            <th>Region Sq. Deg.</th>
-        </tr>
-    </thead>
-        <tr>
-            <td>1st Molonglo Survey [<a href="#" onclick="$('#cite_pop_1').popup('show');">1</a>]</td>
-            <td>1968</td>
-            <td><span class="flagicon"><img alt="" src="images/Molonglo_32x32.png" width="22" height="15" class="thumbborder" />&#160;</span>Molonglo</td>
-            <td>408</td>
-            <td>4</td>
-            <td>2000</td>
-            <td>2</td>
-            <td>5000</td>
-            <td>15</td>
-            <td>1</td>
-            <td>?</td>
-            <td>|b| &lt; 10&deg;, |b| &gt; 10&deg;</td>
-            <td>22980</td>
-        </tr>
-        <tr>
-            <td>Rob 1 [<a href="#" onclick="$('#cite_pop_2').popup('show');">2</a>]</td>
-            <td>2015</td>
-            <td><span class="flagicon"><img alt="" src="images/Parkes_32x32.png" width="22" height="15" class="thumbborder" />&#160;</span>Parkes</td>
-            <td>1420</td>
-            <td>500</td>
-            <td>3000</td>
-            <td>96</td>
-            <td>64</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-            <td>?</td>
-            <td>22980</td>
-        </tr>
-    </table>
+            <table id="spec_table" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Survey</th>
+                        <th>Survey Year</th>
+                        <th>Telescope</th>
+                        <th>Centre Freq. (Mhz)</th>
+                        <th>Bandwidth (Mhz)</th>
+                        <th>Channel Width (Khz)</th>
+                        <th>Channels</th>
+                        <th>Sampling (&mu; sec)</th>
+                        <th>Integration time (secs)</th>
+                        <th>Beams</th>
+                        <th>Pointings</th>
+                        <th>Region</th>
+                        <th>Region Sq. Deg.</th>
+                    </tr>
+                </thead>
+                    <tr>
+                        <td>1st Molonglo Survey [<a href="#" onclick="$('#cite_pop_1').popup('show');">1</a>]</td>
+                        <td>1968</td>
+                        <td><span class="flagicon"><img alt="" src="images/Molonglo_32x32.png" width="22" height="15" class="thumbborder" />&#160;</span>Molonglo</td>
+                        <td>408</td>
+                        <td>4</td>
+                        <td>2000</td>
+                        <td>2</td>
+                        <td>5000</td>
+                        <td>15</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>|b| &lt; 10&deg;, |b| &gt; 10&deg;</td>
+                        <td>22980</td>
+                    </tr>
+                    <tr>
+                        <td>Rob 1 [<a href="#" onclick="$('#cite_pop_2').popup('show');">2</a>]</td>
+                        <td>2015</td>
+                        <td><span class="flagicon"><img alt="" src="images/Parkes_32x32.png" width="22" height="15" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1420</td>
+                        <td>500</td>
+                        <td>3000</td>
+                        <td>96</td>
+                        <td>64</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>22980</td>
+                    </tr>
+                </table>
 
         Here we see a new entry for the "Rob 1" survey, which is apparently being conducted at Parkes. Note that here,
 
-       ``` <td>Rob 1 [<a href="#" onclick="$('#cite_pop_2').popup('show');">2</a>]</td>```
+        <td>Rob 1 [<a href="#" onclick="$('#cite_pop_2').popup('show');">2</a>]</td>
 
         "cite_pop_1" has become "cite_pop_2" - this must be incremented when adding a new survey, i.e. one popup per survey entry.
         Also note that the reference has increased - you have to manage the referencing carefully. What I mean is that if the survey
         Rob 1 was described by two papers, then we would have to do the following:
         
-        ```<td>Rob 1 [<a href="#" onclick="$('#cite_pop_2').popup('show');">2</a> , <a href="#" onclick="$('#cite_pop_3').popup('show');">3</a> ]</td>```
+        <td>Rob 1 [<a href="#" onclick="$('#cite_pop_2').popup('show');">2</a> , <a href="#" onclick="$('#cite_pop_3').popup('show');">3</a> ]</td>
         
         So the number referencing is completely in your hands. 
         
@@ -176,11 +162,11 @@ The HTML and resources for the Pulsar Survey DB website.
         
         For instance, for the 1st Molonglo Survey, there is a link to the popup in an anchor element:
         
-        ```<a href="#" onclick="$('#cite_pop_1').popup('show');">1</a>```
+        <a href="#" onclick="$('#cite_pop_1').popup('show');">1</a>
         
         When this is clicked, the following div is displayed:
         
-        ```<div id="cite_pop_1" class="well"> <!-- Popups 1 -->
+        <div id="cite_pop_1" class="well"> <!-- Popups 1 -->
             <h4>Citation</h4>
             <pre class="prettyprint">
                 <code>@article{Large:1968:mi,
@@ -196,13 +182,13 @@ The HTML and resources for the Pulsar Survey DB website.
             </pre> <a target="_blank" href="http://dx.doi.org/10.1038/220753a0">
                 <button class="fade_close fadeandscale_open btn btn-default">Go to Cited Paper</button></a>
                 <button onclick="$('#cite_pop_1').popup('hide');" class="fade_close btn btn-default">Close</button>
-        </div>```
+        </div>
         
         This popup displays bibtex details for the references, and a button linking to the original paper.
         
         To add a new popup describing the imaginary "Rob 1" survey, we simply do the following:
         
-        ```<div id="cite_pop_2" class="well"> <!-- Popups 2 -->
+        <div id="cite_pop_2" class="well"> <!-- Popups 2 -->
             <h4>Citation</h4>
             <pre class="prettyprint">
                 <code>@article{Rob:2015:survey,
@@ -218,23 +204,23 @@ The HTML and resources for the Pulsar Survey DB website.
             </pre> <a target="_blank" href="http://dx.doi.org/00.0000/00000000">
                 <button class="fade_close fadeandscale_open btn btn-default">Go to Cited Paper</button></a>
                 <button onclick="$('#cite_pop_2').popup('hide');" class="fade_close btn btn-default">Close</button>
-        </div>```
+        </div>
         
         Note the changes - "cite_pop_1" has become "cite_pop_2", the bibtex details have changed, and finally the link
         to the paper have altered so that,
         
-        ```<a target="_blank" href="http://dx.doi.org/10.1038/220753a0">```
+        <a target="_blank" href="http://dx.doi.org/10.1038/220753a0">
         
         has become,
         
-        ```<a target="_blank" href="http://dx.doi.org/00.0000/00000000">```
+        <a target="_blank" href="http://dx.doi.org/00.0000/00000000">
     
     STEP 3. Initialising the popops.
     
         The popups created above need to be initialised. This is done using java script. So for the 1st Molonglo survey,
         this is done simply via, 
         
-        ```<script>
+        <script>
             $(document).ready(function () {
 
             $('#cite_pop_1').popup({
@@ -243,11 +229,11 @@ The HTML and resources for the Pulsar Survey DB website.
             });
     
             });
-        </script>```
+        </script>
         
         To intialise the popup for Rob 1, we simply add it here as follows:
         
-        ```<script>
+        <script>
             $(document).ready(function () {
 
             $('#cite_pop_1').popup({
@@ -260,29 +246,11 @@ The HTML and resources for the Pulsar Survey DB website.
             });
     
             });
-        </script>```
+        </script>
         
         Simple!
         
-2. Citing this work
-
-	Please use the following citation if you make use of tool:
-	
-	@misc{PulsarSurveyDB,
-	author = {Lyon, R. J.},
-	title  = {{Pulsar Survey DB}},
-	affiliation = {University of Manchester},
-	month  = {June},
-	year   = {2015},
-	howpublished = {World Wide Web Accessed (26/06/2015), \newline \url{https://github.com/scienceguyrob/PulsarSurveyDB}},
-	notes  = {Accessed 26/06/2015}
-	}
-	
 3. Acknowledgements
-
-	This work was supported by grant EP/I028099/1 for the University of Manchester Centre for
-	Doctoral Training in Computer Science, from the UK Engineering and Physical Sciences Research
-	Council (EPSRC).
 
 	This work used the Dynatable plugin (http://www.dynatable.com/) to create the interactive table,
     and the jQuery Popup Overlay plugin (http://dev.vast.com/jquery-popup-overlay/) to create reference

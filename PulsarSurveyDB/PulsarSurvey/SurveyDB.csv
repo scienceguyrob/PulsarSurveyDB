@@ -1,0 +1,70 @@
+Survey,Telescope,Survey Year,CentreFreq (Mhz),Bandwidth (Mhz),ChannelWidth (Khz),Channels,Sampling (micro sec),Integration time (secs),Beams,Pointings,Region,Square Degrees,Samples per second (sample rate * channels),Bits (per sample),Data rate^-1(MB),Data Total (GB),DM Trials,DM Trial Lower Lim cm-3,DM Trial Upper Lim cm-3,Candidates,Notes
+1st Cambridge Survey,Interplanetary Scintillation Array,1967,81.5,1,?,?,100000,?,?,?,Whole sky -8° > δ > 44°,?,?,?,?,?,?,?,?,?,
+1st Molonglo Survey,Molonglo,1968,408,4,2000,2,5000,15,1,?,"|b| < 10°, |b| > 10°",22980,400,?,?,?,?,?,?,?,Square degree value obtained from Manchester:1978:rl
+Search at low galactic latitudes,Jodrell Bank,1969,408,4,?,?,50000,819,1,431,"b=−1, b=0, b=+1° and 11° ≤ l ≤ 125°. ",?,?,?,?,?,?,?,?,?,Survey year estimated from publication date and other information. Reports 2^14 samples.
+Arecibo Survey 1,Arecibo,197?,430,8,250,32,5600,198,1,1909.09091,"-5° ≤ b ≤ 5° and 35° ≤ l ≤ 75°, 170° ≤ l ≤ 210°",52,5714.2857142857,?,?,?,64,0,1240,?,0.5 sq degrees searched per hour. Pointings derived from Sq degrees searched & fact that a point in the sky remained in the beam for 3.3 minutes.
+Jodrell Survey A,Jodrell Bank,1972,408,4,2000,2,40000,660,1,?,-10° ≤ b ≤ 10° and 0° ≤ l ≤ 200°,~4924,50,?,?,?,?,0,~500,?,1.5 sr searched
+2nd Molonglo Survey,Molonglo,1977,408,4,800,4,20000,44.7,11,?,-85° < δ < +20°,~27576,200,4,?,?,?,0,130/520/800,2500,8.4 sr searched. 105 days of total observations.
+Green Bank Northern Hemisphere Survey,Green Bank,1977,400,16,2000,8,16700,144,?,?,δ > +20°,?,479.0419161677,?,?,?,8,0,120,?,
+Princeton-NRAO Survey,Arecibo,1982-83,390,16,2000,8,5555.56555556,138,24000,?,δ≥-18°,~5909,1439.9974080035,3,?,?,8,0,117,?,1000 computer tapes.
+Green Bank short-period survey,Green Bank,1983,390,8,250,32,2000,132,?,?,|b| < 15° and 15° < l < 230°,~3725,16000,3,?,?,?,?,?,?,
+Jodrell Survey B,Jodrell Bank,1983-84,1400,40,5000,8,2000,540,?,?,|b| < 1° and -4° ≤ l ≤ 105°,200,4000,3,?,?,?,0,17000,?,
+Arecibo survey 2 (a) – Phase II Princeton-NRAO,Green Bank,1983,390,8,250,32,2000,132,1,14195,δ≥-18°,~3725,16000,3,?,?,?,?,?,5405,2x10^6 combinations of period and DM tried.
+Arecibo survey 2 (b),Arecibo,1984-85,430,0.96,60,16,300,39,1,12830,|b| < 10° and 40° < l < 65°,289,53333.3333333333,3,?,?,?,?,?,?,2x10^6 combinations of period and DM tried.
+Survey for millisecond pulsars at Molonglo,Molonglo,1885-86,843,3.2,200,16,500,132,1,7000,"-1° < |b| < +1° , 255° < l <360°",210,32000,?,?,?,12,11/175,400/1750,?,
+Jodrell Survey C (610 MHz),Jodrell Bank,1985-87,610,4/8,125/250,32,300,79,1,?,"Region furthest from Galactic centre, northern galactic plane",~1500,106666.666666667,1,?,?,39,32/64/85,373/746/995,?,
+Jodrell Survey C (925 MHz),Jodrell Bank,1985-87,925,8,250,32,300,79,1,?,?,see above,106666.666666667,1,?,?,39,114,1430,?,
+Jodrell Survey C (928 MHz),Jodrell Bank,1985-87,928,8,250,32,300,79,1,?,1° < |b| < 2°,see above,106666.666666667,1,?,?,39,114,1430,?,
+Jodrell Survey C (1420 MHz),Jodrell Bank,1985-87,1420,32,1000,32,300,79,1,?," |b| < 1°, 0° < l < 60°",see above,106666.666666667,1,?,?,39,104,1770,?,
+Parkes 20-cm Survey (System I),Parkes,1988,1434,800,1000,80,300,78.6,?,?,|b| < 4° and 20° ≤ l ≤ 270°,800,266666.666666667,1,?,?,100,0,2000,150000,
+Parkes 20-cm Survey (System II),Parkes,1988,1520,320,5000,64,1200,157.3,?,?,|b| < 4° and 20° ≤ l ≤ 270°,800,53333.3333333333,1,?,?,100,0,3000,150000,
+Arecibo 430 MHz Intermediate Galactic Latitude Survey,Arecibo,1989-91,430,10,78.125,128,506.625,66.4,1,6121,7° < |b| < 20°,130,252652.356279299,?,?,?,163,0,200,?,"113 survey hours, each pointing was 2^17 samples"
+High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1),Arecibo,1990,430,10,250,128,506,~40,?,~91000,Primarily covering northern latitudes |b| > 15° to the Galactic pole (H1-H5),146,252964.42687747,4,?,?,64,0,50,?,"91,000 points on sky observed during H1 to H5."
+High Galactic Latitude Pulsar Survey of the Arecibo Sky (H2),Arecibo,1991,430,8,250,32,250,~40,?,See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1),See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1),228,128000,3,?,?,64,0,50,?,
+High Galactic Latitude Pulsar Survey of the Arecibo Sky (H3),Arecibo,1992,430,8,250,32,250,~40,?,See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1),See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1),214,128000,3,?,?,64,0,50,?,
+High Galactic Latitude Pulsar Survey of the Arecibo Sky (H4),Arecibo,1993,430,8,250,32,250,~40,?,See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1),See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1),240,128000,3,?,?,64,0,50,?,
+High Galactic Latitude Pulsar Survey of the Arecibo Sky (H5),Arecibo,1994-95,430,8,250,32,250,~40,?,See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1),See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1),527,128000,3,?,?,64,0,50,?,
+Arecibo Survey 4 Phase I,Arecibo,1991,430,10,78.125,128,516.625,67.7,1,?,-8° < b < 8° and 35° < l < 65°,235,247761.916283571,3,?,?,?,?,?,?,Assumed same as below.
+Arecibo Survey 4 Phase II,Arecibo,1992,429,8,250,64,250,~40,1,?,-50° < b < -25° and 70° < l <130°,162,256000,3,?,?,192,0,300,?,3 bit accuracy
+Parkes Southern Pulsar Survey,Parkes,1991-93,436,32,1250,256,300,157.3,1,44299,Entire southern hemisphere,~20626.5,853333.333333333,4,?,?,738,0,777,40000,210 MB per observation
+2nd Cambridge Survey,Interplanetary Scintillation Array,1993-94,81.5,?,?,256,256,?,?,?,-20° > δ > 86°,?,?,?,?,?,640,0,102.55,?,
+Jodrell Bank Millisecond Pulsar Survey,Lovell,1994-95,418,8,125,64,300,315,?,?,35° > δ > 90°,?,213333.333333333,1,?,?,182,0,770,?,
+Green Bank fast pulsar survey,Green Bank,1994-96,370,40,78.125,512,256,134,?,?,77% of northern hemisphere,17400,2000000,1,0.25,?,512,0,20,?,4GB collected every 4.8 hours.
+Parkes Multibeam Pulsar Survey,Parkes,1997,1374,288,3000,96,250,2100,13,2670,|b| < 5° and 50° < l < 260°,1550,384000,1,0.64,?,325,0,2203,8000000,
+Swinburne Intermediate-lat pulsar survey,Parkes,1998-99,1374,288,3000,96,125,265,13,4764,5° < b < 15° and -100° < l < 50°,1191,768000,1,?,1600,375,0,562.5,> 200000,Four pointings gives roughly 1 degree so 4764/4 = 1191. 30GB candidate data even after filtering. 1.6TB total data set.
+Parkes high-lat multibeam pulsar survey,Parkes,2000-03,1374,288,3000,96,125,265,13,6456,|b| < 60° and 220° < l < 260°,?,768000,1,?,?,?,0,1088,?,
+Survey of the Magellanic Clouds,Parkes,2000-01,1374,288,3000,96,1000,8400,13,209,Magellanic Clouds,?,96000,1,?,?,228,0,2200,?,"Different DM searches: 102 trials between 0 and 277 cm-3 (1 ms time res), 42 between 0 and 550 cm-3  (2 ms time res), 42 between 0 and 1100 cm-3  (4 ms time res), 42 between 0 and 2200 cm-3  (8 ms time res)."
+1.4 GHz Arecibo Survey (DM < 100),Arecibo,2001-02,1175,100,0.390625,256,64,7200,1,?,"Every known Galactic globular cluster visible from Arecibo, within 70 kpc of the Sun without any selection bias toward larger or denser clusters.",?,4000000,16,?,?,?,?,?,?,"8MB-1 or 30GB per hour, 4 TB in total"
+1.4 GHz Arecibo Survey (DM > 100),Arecibo,2001-02,1475,100,0.1953125,512,128,7200,1,?,"Every known Galactic globular cluster visible from Arecibo, within 70 kpc of the Sun without any selection bias toward larger or denser clusters.",?,4000000,16,?,?,?,?,?,?,joint with above.
+Large Area Survey for Radio Pulsars,Parkes,2001-02,1374,288,3000,96,125,256,13,7232,15° ≤ b ≤ 30° and -100° ≤ l ≤ 50°,~4150,768000,1,?,2400,375,0,562.5,9307584,2.4TB data in total.
+EGRET 56 Pulsar survey,Parkes,2002-03,1374,288,3000,96,125,2100,13,232,5° < |b| < 73°,?,768000,1,?,?,150,0,542,?,200 MB per beam and 600GB in total.
+EGRET error box survey,Arecibo,2003,327,25,48.828125,512,125,260,1,224,|b|>5° and 2° < δ < 38°,9.6,4096000,?,?,?,392,0,491.2,?,
+A0327 Pilot,Arecibo,2003,327,25,48.828125,512,256,60,?,?,"-1° < δ < 28°, excluding the region within 5° of the Galactic plane",?,2000000,16 (4 scaled),?,?,6358,0,1000,?,
+The Perseus Arm Pulsar Survey,Parkes,2004-09,1374,288,3000,96,125,2100,13,913,|b| < 5° and 200° < l < 260°,?,768000,1,?,?,325/183,0,1088/1500,?,"Two pipelines, HTRU and PMFind so different DM trial parameters."
+The 8gr8 Cygnus Survey,Westerbrok,2004-05,328,10,19.53125,512,819.2,6872,?,144,The region of the Galactic plane between -0.25° < b < 7.25° and 100° < l < 40°,420,625000,,?,?,488,0,340,,
+Parkes deep northern Galactic Plane survey,Parkes,2004-05,1374,288,3000,96,125,4200,13,120,|b| ≤ 2° and 50° ≤ l ≤ 60°,?,768000,1,?,?,496,1.1,4931,?,
+P-ALFA Survey (intial) (WAPP),Arecibo,2004,1420,100,390.625,256,64,134,7,1784,"|b| ≤ 5°, 32° ≤ l ≤ 77°, 168° ≤ l ≤ 214°",30.6,4000000,16,?,?,96,0,980,See P-Alfa Mock,"0.3TB per hour, 2 byte integers stored at 64 microsecond intervals"
+P-ALFA Survey (anticipated) (WAPP),Arecibo,2004-10,1420,300,390.625,1024,64,134,7,?,|b| ≤ 5° and 32° ≤ l ≤ 77° and 168° ≤ l ≤ 214°,275,16000000,16,?,?,96/1272,0,980/1000,?,"0.3TB per hour, 2 byte integers stored at 64 microsecond intervals. Different DM trial values for periodicity search/single pulse search (reported in Deneva:2009:ac). Total sky coverage includes earlier observations described in first P-Alfa paper (Cordes et al.)."
+6.5 Ghz Multibeam Pulsar Survey,Parkes,2006-07,6591,576,3000,192,125,1055,7,2560,|b| ≤ 0.25° and -60° ≤ l ≤ 30°,?,1536000,1,?,5000,~286,0,2000,>3500000,5TB of data collected. 170 candidates per beam = over 3.5 million for the survey.
+Green Bank 350 MHz Drift Scan,Green Bank,2007,350,50,24.4140625,2048,81.92,140,?,?,Azimuth restrictions allowed access to declination ranges of -7°.72 < δ < 38°.43 and -20°.66 < δ < 38°.43 for azimuths of 229° and 192°,?,25000000,16,?,134000,?,?,?,?,1491 hours of data taken.
+GBT350 (Spigot),Green Bank,2007,350,50,24.4140625,2048,82,140,?,?,?,10300,24975609.7560976,?,?,?,?,?,?,?,"http://astro.phys.wvu.edu/GBTdrift350/ Square degrees details found at the website, and survey year."
+P-ALFA Survey (MOCK),Arecibo,2009-present,1375,322.6,336.041667,960,65.5,120-300,7,~5045,|b| ≤ 5° and 30° ≤ l ≤ 78° and 162° ≤ l ≤ 214°,?,14656488.5496183,16,?,?,5016,0,2038,>5000000,16bit data reduced to 4 for data storage requirements. The ~5045 pointings are for the MOCK spectrometer between 2009-12 in the outer galaxy.
+GBNCC (GUPPI),Green Bank,2009-14,350,100,24.4140625,4096,82,120,?,~30000,δ > −40◦ (sky visible to Green Bank),>13500,49951219.5121951,?,?,700000,17352/26532,0,500/3000,>1200000,"Dispersion trials and range increased due to Thornton burst discovery, thus two sets of values."
+Southern HTRU (LOW),Parkes,2010-12,1352,340,390.625,870,64,4300,13,1230,|b| ≤ 3°.5 and -80° < l < 30°,~840,13593750,8,?,250000,?,?,?,1600000,16gb per beam. 1PB data total according to Ng 2014.
+Southern HTRU (MED),Parkes,2010-12,1352,340,390.625,870,64,540,13,7312,|b| ≤ 15° and -120° < l < 30°,~4500,13593750,8,?,190000,1436,0,2000,9509600,2gb per beam.
+Southern HTRU (HIGH),Parkes,2010-12,1352,340,390.625,870,64,270,13,34099,δ < +10◦,?,13593750,8,?,435000,8000,0,800,44328700,1gb per beam.
+A0327 (MOCK),Arecibo,2010,327,57,55.6640625,1024,125,60,?,?,"-1° < δ < 28°, excluding the region within 5° of the Galactic plane",?,8192000,?,?,?,6358,0,1000,?,
+LPPS,LOFAR,2010,142,6.8,12.1428571,560,655,3420,7,246,,?,854961.832061069,8,?,?,3487,0,3000,?,
+LOTAS,LOFAR,2010-11,143,48,12.295082,3904,1300,1020,19,206,?,?,3003076.92307692,8,?,?,16845/18100,0,1000,?,
+Northern HTRU (LOW),Effelsberg,2010-14,1360,240,585.9,410,54.61,1500,7,12485,|b| < 3°.5,?,7507782.45742538,8,?,1117800,3240/406,0,978/3000,>80000000,"13.4 gb per beam, ~38MBs-1. 5PB data total according to Ng 2014. Quick search pipeline searches 406 trial DM's up to 3000."
+Northern HTRU (MED),Effelsberg,2010-14,1360,240,585.9,410,54.61,180,7,53581,|b| < 15°,?,7507782.45742538,8,?,575600,3240/406,0,978/3000,>80000000,1.6 gb per beam. Quick search pipeline searches high DM range up to 3000.
+Northern HTRU (HIGH),Effelsberg,2010-14,1360,240,585.9,410,54.61,90,7,152305,|b| > 15°,?,7507782.45742538,8,?,818100,3240/406,0,978/3000,>80000000,0.8 gb per beam. Quick search pipeline searches high DM range up to 3000.
+A0327 (PUPPI),Arecibo,2014,327,69,24.5028409,2816,82,60,?,?,"-1° < δ < 28°, excluding the region within 5° of the Galactic plane",?,34341463.4146341,?,?,?,6358,0,1000,?,
+SPAN512,Nancy,2012,1486,512,500,1024,64,1080,2,5800,3.5° < |b| <5° and 74°≤ l <150°,230,16000000,4,?,5000,?,?,1800,?,
+LOTAAS,LOFAR,2013,135.248,94.9219,12.207,2592,491.52,3600,222,1950,All Northern Sky,20625.5,5273437.5,8,?,31200000,7000,0,500,43000000,35 Gbps (close to the total possible system throughput of the LOFAR CEP2 network). Each 1-hour pointing produces 16 TB of raw data.
+SUPERB,Parkes,2014,1374,340,332.03125,1024,32,540,13,6644,"Latitude -25° ≤ |b| ≤ 25°, extends the HTRU medium latitude survey out to +/-25 degrees",?,32000000,8,?,?,1448,0,400,?,549 ACC trials -250 -> 250 m/s/s
+GMRT High Resolution Southern Sky Survey (MID),GMRT,2014,322,32,15.625,2048,60,1200,1,682,5° < |b| < 20° and -40° < δ < -54°,1212,34133333.3333333,?,?,50000,6000,0.01,500/2000,?,76GB per beam.
+GMRT High Resolution Southern Sky Survey (HIGH),GMRT,2014,322,32,31.25,1024,30,720,1,911,|b| > 20° and -40° < δ < -54°,1620,34133333.3333333,?,?,40000,6000,0.01,500/2000,?,45GB per beam.
+FAST*,FAST,2016,1315,400,42.1052632,9500,100,600,19,?,?,?,95000000,2,?,?,?,?,?,?,"Simulation. For the initial 19-beam receiver, the data rate is just under 0.5 GB per second. For 100 beams it is about 2.4 GB per second."
+SKA** (Configuration A – 3000 Dishes),SKA,2020-22,1250,500,50,9500,64,1800,?,?,?,35000,148437500,2,?,?,?,?,?,?,35000 degrees corresponds to an all sky survey.
+SKA** (Configuration B – Aperture Array),SKA,2020-22,650,300,50,9500,64,1800,?,?,?,35000,148437500,2,?,?,?,?,?,?,35000 degrees corresponds to an all sky survey.

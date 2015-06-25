@@ -1,0 +1,3567 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Page written by Rob Lyon. Based on initial page design by the good people at Dynatable.      -->
+    <!-- Instructions on how to edit/add new entries are provided within, and are also in a separate  -->
+    <!-- readme file. However if you don't have it, there are three basic steps to adding a new table -->
+    <!-- entry:                                                                                       -->
+    <!--                                                                                              -->
+    <!-- Step one:   add new <td></td> element to the table below.                                    -->
+    <!-- Step two:   add a new popup <div></div> element that will contain a refrence to the paper    -->
+    <!--             that describes the new entry.                                                    -->
+    <!-- Step three: initialise the popup.                                                            -->
+    <title>Pulsar Survey</title>
+    <meta property="og:url" content="http://www.jb.man.ac.uk/pulsar/Surveys.html" />
+    <meta property="og:title" content="Pulsar Survey Specifications 1968-2020" />
+    <meta property="og:description" content="A listing of every major pulsar survey conducted since 1968." />
+    
+    <!-- css files for the table and the page -->
+    <link rel="stylesheet" media="all" href="table/bootstrap-2.3.2.min.css" />
+    <link rel="stylesheet" media="all" href="table/main.css" />
+    <link rel="stylesheet" media="all" href="table/table.css" />
+    
+    <!-- scripts which generate the table -->
+    <script type='text/javascript' src='vendor/jquery-2.1.3.min.js'></script>
+    <script type='text/javascript' src='table/jquery.dynatable.js'></script>
+
+    <!-- jQuery Popup code - used for citation popups -->
+    <script src="popup/jquery.popupoverlay.js"></script>
+</head>
+
+<body>
+    <!--Define area at top of the page. -->
+    <div id='splashbar'>
+        <div class=''>
+            <div class="splash-right">
+                <h1 id="title"><img alt="" src="images/SurveyTelescopes_horiz_small.png" /> Survey <span>DB</span></h1>
+                <!--<div id="tagline">Pulsar Survey Specifications</div>-->
+                <p id="description">A listing of every major pulsar survey conducted since 1967.</p>
+            </div>
+            <!-- Add two download buttons. -->
+            <div class="splash-right splash-download">
+                <div id="download">
+                    <!-- Download button for database csv file -->
+                    <div id="download-group">
+                        <a class='btn btn-success large-button' id='download-button' href='SurveyDB.csv'><img alt="Download DB" src='images/Save_32.png' height="22" width="22" /> Download</a>
+                    </div>
+                    <!-- Download button for file contain survey citations in bibtex format. -->
+                    <div id="citation-group">
+                        <a class='btn large-button' id='cite-button' href='SurveyDB.bib'><img alt="Download Citations" src='images/Cite_32.png' height="22" width="22" /> Citations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id='tagbar' class='homepage'>
+        <div class='contained'>
+            <div id='share-container'>
+            </div>
+        </div>
+    </div>
+    <div id='content_1' class='contained'>
+        <div id='post_1'>
+            <h1>Overview</h1>
+            <!-- Note the messy looking code here uses java script to obfuscate my email address so people can contact       -->
+            <!-- me to make changes/or add new entrys. Never put a plain text version of your email address in the HTML      -->
+            <!-- code or spammers will steal it. Here's one for the spammers emailaddressforspammers@notrealemailaddress.com -->
+            <!-- I've also included twitter buttons below, as people often like to get in touch via social media.            -->
+            <p>Here we've provided two interactive tables. The first contains specifications for all major pulsar surveys conducted since 1967. The second (below the first) contains data/search pipleline information for the same surveys. Some surveys used multiple search pipelines (or parameters), and these are listed as separate entries. Bibtex citations for each survey can be obtained by simply clicking the reference(s) next to the survey name. We hope you find this resource useful. We've tried to make it as complete and accurate as possible. Note that the omission of a survey here should be treated as a mistake, as opposed to a judgement on its significance. If you notice any errors, or would like to add a new entry, please get in touch via <script>
+var username = "robertlyon";
+var hostname = "gmail";
+var linktext = username + "@" + hostname ;
+document.write("<a href='" + "mail" + "to:" + username + "@" + hostname + ".com'>" + linktext + "</a>"); </script> or <a href="https://twitter.com/intent/tweet?screen_name=scienceguyrob" class="twitter-mention-button" data-dnt="true">Tweet to @scienceguyrob</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script><a href="https://twitter.com/intent/tweet?screen_name=bstappers" class="twitter-mention-button" data-dnt="true">Tweet to @bstappers</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> </p>
+            <h2 class="spec_heading">Survey Specifications</h2>
+            <p>Please refer to Lyon et al. (2015) and the URL http://www.jb.man.ac.uk/pulsar/Surveys.html if using this data (<a href="#" onclick="$('#cite_pop_63').popup('show');">bibtex</a>).</p>
+            <!-- Here we construct the first table. The dynatable plugin is used to add interactivity to the table. To do this   -->
+            <!-- it reads the HTML code describing the table, parses it, and then outputs a new version in the web browser.      -->
+            <!-- Step One of adding a new entry to the table, means addind a new entry to the table below. The table has 13      -->
+            <!-- columns, and each new entry should be added to the bottom.                                                      -->
+            <!--                                                                                                                 -->
+            <!-- Each survey entry is assocaited with an anchor <a></a> element accompnaying the survey name. This anchor        -->
+            <!-- contains a link to the reference(s) that describe the survey. Each reference is displayed in a separate popup   -->
+            <!-- window. So the reference for each survey is associated with a specific popup window. For example,               -->
+            <!-- <a href="#" onclick="$('#cite_pop_1').popup('show');">1</a>                                                     -->
+            <!-- opens popup describing the reference to the 1st Molonglo survey. Each entry also displays an image of the       -->
+            <!-- telescope used during the survey. -->
+            <div class="dynatable-demo">
+                <table id="spec_table" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Survey</th>
+                            <th>Survey Year</th>
+                            <th>Telescope</th>
+                            <th>Centre Freq. (Mhz)</th>
+                            <th>Bandwidth (Mhz)</th>
+                            <th>Channel Width (Khz)</th>
+                            <th>Channels</th>
+                            <th>Sampling (&mu; sec)</th>
+                            <th>Integration time (secs)</th>
+                            <th>Beams</th>
+                            <th>Pointings</th>
+                            <th>Region</th>
+                            <th>Region Sq. Deg.</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>1st Cambridge Survey [<a href="#" onclick="$('#cite_pop_1').popup('show');">1</a>]</td>
+                        <td>1967</td>
+                        <td><span class="flagicon"><img alt="IPS Array" src="images/IPS_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Interplanetary Scintillation Array</td>
+                        <td>81.5</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>100000</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>Whole sky -8&deg; &gt; &delta; &gt; 44&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>1st Molonglo Survey [<a href="#" onclick="$('#cite_pop_2').popup('show');">2</a>]</td>
+                        <td>1968</td>
+                        <td><span class="flagicon"><img alt="Molonglo" src="images/Molonglo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Molonglo</td>
+                        <td>408</td>
+                        <td>4</td>
+                        <td>2000</td>
+                        <td>2</td>
+                        <td>5000</td>
+                        <td>15</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>|b| &lt; 10&deg;,<br>|b| &gt; 10&deg;</td>
+                        <td>22980</td>
+                    </tr>
+                    <tr>
+                        <td>Search at Low Galactic Latitudes [<a href="#" onclick="$('#cite_pop_3').popup('show');">3</a>,<a href="#" onclick="$('#cite_pop_4').popup('show');">4</a>]</td>
+                        <td>1969</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>408</td>
+                        <td>4</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>50000</td>
+                        <td>819</td>
+                        <td>1</td>
+                        <td>431</td>
+                        <td>b=-1&deg;, b=0&deg;, b=+1&deg;,<br>11&deg; &le; l &le; 125&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>Arecibo Survey 1 [<a href="#" onclick="$('#cite_pop_5').popup('show');">5</a>]</td>
+                        <td>197?</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>430</td>
+                        <td>8</td>
+                        <td>250</td>
+                        <td>32</td>
+                        <td>5600</td>
+                        <td>198</td>
+                        <td>1</td>
+                        <td>1909.09091</td>
+                        <td>-5&deg; &le; b &le; 5&deg;,<br>35&deg; &le; l &le; 75&deg;,<br> 170&deg; &le; l &le; 210&deg;</td>
+                        <td>52</td>
+                    </tr>
+                    <tr>
+                        <td>Jodrell Survey A [<a href="#" onclick="$('#cite_pop_6').popup('show');">6</a>]</td>
+                        <td>1972</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>408</td>
+                        <td>4</td>
+                        <td>2000</td>
+                        <td>2</td>
+                        <td>40000</td>
+                        <td>660</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>-10&deg; &le; b &le; 10&deg;,<br>0&deg; &le; l &le; 200&deg;</td>
+                        <td>&#126;4924</td>
+                    </tr>
+                    <tr>
+                        <td>2nd Molonglo Survey [<a href="#" onclick="$('#cite_pop_7').popup('show');">7</a>]</td>
+                        <td>1977</td>
+                        <td><span class="flagicon"><img alt="Molonglo" src="images/Molonglo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Molonglo</td>
+                        <td>408</td>
+                        <td>4</td>
+                        <td>800</td>
+                        <td>4</td>
+                        <td>20000</td>
+                        <td>44.7</td>
+                        <td>11</td>
+                        <td>?</td>
+                        <td>-85&deg; &#60; &delta; &#60; +20&deg;</td>
+                        <td>&#126;27576</td>
+                    </tr>
+                    <tr>
+                        <td>Green Bank Northern Hemisphere Survey [<a href="#" onclick="$('#cite_pop_8').popup('show');">8</a>,<a href="#" onclick="$('#cite_pop_9').popup('show');">9</a>]</td>
+                        <td>1977</td>
+                        <td><span class="flagicon"><img alt="GBT" src="images/GBT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Green Bank</td>
+                        <td>400</td>
+                        <td>16</td>
+                        <td>2000</td>
+                        <td>8</td>
+                        <td>16700</td>
+                        <td>144</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>&delta; &#62; +20&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>Princeton-NRAO Survey [<a href="#" onclick="$('#cite_pop_10').popup('show');">10</a>]</td>
+                        <td>1982-83</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>390</td>
+                        <td>16</td>
+                        <td>2000</td>
+                        <td>8</td>
+                        <td>5555.56555556</td>
+                        <td>138</td>
+                        <td>24000</td>
+                        <td>?</td>
+                        <td>&delta; &ge; -18&deg;</td>
+                        <td>&#126;5909</td>
+                    </tr>
+                    <tr>
+                        <td>Green Bank Short-period Survey [<a href="#" onclick="$('#cite_pop_11').popup('show');">11</a>]</td>
+                        <td>1983</td>
+                        <td><span class="flagicon"><img alt="GBT" src="images/GBT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Green Bank</td>
+                        <td>390</td>
+                        <td>8</td>
+                        <td>250</td>
+                        <td>32</td>
+                        <td>2000</td>
+                        <td>132</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>|b| &lt; 15&deg;,<br> 15&deg; &lt; l &lt; 230&deg;</td>
+                        <td>&#126;3725</td>
+                    </tr>
+                    <tr>
+                        <td>Jodrell Survey B [<a href="#" onclick="$('#cite_pop_12').popup('show');">12</a>]</td>
+                        <td>1983-84</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>1400</td>
+                        <td>40</td>
+                        <td>5000</td>
+                        <td>8</td>
+                        <td>2000</td>
+                        <td>540</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>|b| &lt; 1&deg;,<br>-4&deg; &le; l &le; 105&deg;</td>
+                        <td>200</td>
+                    </tr>
+                    <tr>
+                        <td>Arecibo Survey 2 (a) Phase II Princeton-NRAO [<a href="#" onclick="$('#cite_pop_13').popup('show');">13</a>]</td>
+                        <td>1983</td>
+                        <td><span class="flagicon"><img alt="GBT" src="images/GBT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Green Bank</td>
+                        <td>390</td>
+                        <td>8</td>
+                        <td>250</td>
+                        <td>32</td>
+                        <td>2000</td>
+                        <td>132</td>
+                        <td>1</td>
+                        <td>14195</td>
+                        <td>&delta; &ge; -18&deg;</td>
+                        <td>&#126;3725</td>
+                    </tr>
+                    <tr>
+                        <td>Arecibo Survey 2 (b) [<a href="#" onclick="$('#cite_pop_13').popup('show');">13</a>]</td>
+                        <td>1984-85</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>430</td>
+                        <td>0.96</td>
+                        <td>60</td>
+                        <td>16</td>
+                        <td>300</td>
+                        <td>39</td>
+                        <td>1</td>
+                        <td>12830</td>
+                        <td>|b| &lt; 10&deg;,<br>40&deg; &lt; l &lt; 65&deg;</td>
+                        <td>289</td>
+                    </tr>
+                    <tr>
+                        <td>Survey for millisecond pulsars at Molonglo [<a href="#" onclick="$('#cite_pop_14').popup('show');">14</a>]</td>
+                        <td>1985-86</td>
+                        <td><span class="flagicon"><img alt="Molonglo" src="images/Molonglo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Molonglo</td>
+                        <td>843</td>
+                        <td>3.2</td>
+                        <td>200</td>
+                        <td>16</td>
+                        <td>500</td>
+                        <td>132</td>
+                        <td>1</td>
+                        <td>7000</td>
+                        <td>-1&deg; &lt; |b| &lt; +1&deg;,<br> 255&deg; &lt; l &lt; 360&deg;</td>
+                        <td>210</td>
+                    </tr>
+                    <tr>
+                        <td>Jodrell Survey C (610 MHz) [<a href="#" onclick="$('#cite_pop_15').popup('show');">15</a>]</td>
+                        <td>1985-87</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>610</td>
+                        <td>4/8</td>
+                        <td>125/250</td>
+                        <td>32</td>
+                        <td>300</td>
+                        <td>79</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>Region furthest from Galactic centre, northern galactic plane</td>
+                        <td>~1500</td>
+                    </tr>
+                    <tr>
+                        <td>Jodrell Survey C (925 MHz) [<a href="#" onclick="$('#cite_pop_15').popup('show');">15</a>]</td>
+                        <td>1985-87</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>925 </td>
+                        <td>8</td>
+                        <td>250</td>
+                        <td>32</td>
+                        <td>300</td>
+                        <td>79</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>See Jodrell Survey C (610 MHz)</td>
+                    </tr>
+                    <tr>
+                        <td>Jodrell Survey C (928 MHz) [<a href="#" onclick="$('#cite_pop_15').popup('show');">15</a>]</td>
+                        <td>1985-87</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>928</td>
+                        <td>8</td>
+                        <td>250</td>
+                        <td>32</td>
+                        <td>300</td>
+                        <td>79</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>1&deg; &lt; |b| &lt; 2&deg;</td>
+                        <td>See Jodrell Survey C (610 MHz)</td>
+                    </tr>
+                    <tr>
+                       <td>Jodrell Survey C (1420 MHz) [<a href="#" onclick="$('#cite_pop_15').popup('show');">15</a>]</td>
+                        <td>1985-87</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>1420</td>
+                        <td>32</td>
+                        <td>1000</td>
+                        <td>32</td>
+                        <td>300</td>
+                        <td>79</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>|b| &lt; 1&deg;,<br>0&deg; &lt; l &lt; 60&deg;</td>
+                        <td>See Jodrell Survey C (610 MHz)</td>
+                    </tr>
+                    <tr>
+                        <td>Parkes Globular Cluster Survey (20cm) [<a href="#" onclick="$('#cite_pop_16').popup('show');">16</a>,<a href="#" onclick="$('#cite_pop_17').popup('show');">17</a>]</td>
+                        <td>1989-90</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1491</td>
+                        <td>80/320</td>
+                        <td>1000/5000</td>
+                        <td>80/64</td>
+                        <td>300</td>
+                        <td>3000</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>Parkes Globular Cluster Survey (50cm) [<a href="#" onclick="$('#cite_pop_16').popup('show');">16</a>,<a href="#" onclick="$('#cite_pop_17').popup('show');">17</a>]</td>
+                        <td>1988-90</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>640</td>
+                        <td>32</td>
+                        <td>250</td>
+                        <td>128</td>
+                        <td>300</td>
+                        <td>3000/4500</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>Arecibo Survey 3 [<a href="#" onclick="$('#cite_pop_18').popup('show');">18</a>]</td>
+                        <td>198?</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>430</td>
+                        <td>10</td>
+                        <td>78.125</td>
+                        <td>128</td>
+                        <td>516.625</td>
+                        <td>67.7</td>
+                        <td>1</td>
+                        <td>10300</td>
+                        <td>|b| &lt; 8&deg;</td>
+                        <td>&#126;260</td>
+                    </tr>
+                    <tr>
+                        <td>Parkes 20-cm Survey (System I) [<a href="#" onclick="$('#cite_pop_19').popup('show');">19</a>]</td>
+                        <td>1988</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1434</td>
+                        <td>800</td>
+                        <td>1000</td>
+                        <td>80</td>
+                        <td>300</td>
+                        <td>78.6</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>|b| &lt; 4&deg;, <br>20&deg; &le; l &le; 270&deg; </td>
+                        <td>800 (Systems I and II) </td>
+                    </tr>
+                    <tr>
+                        <td>Parkes 20-cm Survey (System II) [<a href="#" onclick="$('#cite_pop_19').popup('show');">19</a>]</td>
+                        <td>1988</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1520</td>
+                        <td>320</td>
+                        <td>5000</td>
+                        <td>64</td>
+                        <td>1200</td>
+                        <td>157.3</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>|b| &lt; 4&deg;,<br>20&deg; &le; l &le; 270&deg; </td>
+                        <td>See Parkes 20-cm Survey (System I)</td>
+                    </tr>
+                    <tr>
+                        <td>Arecibo 430 MHz Intermediate Galactic Latitude Survey [<a href="#" onclick="$('#cite_pop_20').popup('show');">20</a>]</td>
+                        <td>1989-91</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>430</td>
+                        <td>10</td>
+                        <td>78.125</td>
+                        <td>128</td>
+                        <td>506.625</td>
+                        <td>66.4</td>
+                        <td>1</td>
+                        <td>6121</td>
+                        <td>7&deg; &lt; |b| &lt; 20&deg;</td>
+                        <td>130</td>
+                    </tr>
+                    <tr>
+                        <td>High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1) [<a href="#" onclick="$('#cite_pop_21').popup('show');">21</a>]</td>
+                        <td>1990</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>430</td>
+                        <td>10</td>
+                        <td>250</td>
+                        <td>128</td>
+                        <td>506</td>
+                        <td>&#126;40</td>
+                        <td>?</td>
+                        <td>~91000</td>
+                        <td>Primarily covering northern latitudes |b| &gt; 15&deg; to the Galactic pole (H1-H5)</td>
+                        <td>146</td>
+                    </tr>
+                    <tr>
+                        <td>High Galactic Latitude Pulsar Survey of the Arecibo Sky (H2) [<a href="#" onclick="$('#cite_pop_21').popup('show');">21</a>]</td>
+                        <td>1991</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>430</td>
+                        <td>8</td>
+                        <td>250</td>
+                        <td>32</td>
+                        <td>250</td>
+                        <td>&#126;40</td>
+                        <td>?</td>
+                        <td>See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1)</td>
+                        <td>See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1)</td>
+                        <td>228</td>
+                    </tr>
+                    <tr>
+                        <td>High Galactic Latitude Pulsar Survey of the Arecibo Sky (H3) [<a href="#" onclick="$('#cite_pop_21').popup('show');">21</a>]</td>
+                        <td>1992</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>430</td>
+                        <td>8</td>
+                        <td>250</td>
+                        <td>32</td>
+                        <td>250</td>
+                        <td>&#126;40</td>
+                        <td>?</td>
+                        <td>See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1)</td>
+                        <td>See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1)</td>
+                        <td>214</td>
+                    </tr>
+                    <tr>
+                        <td>High Galactic Latitude Pulsar Survey of the Arecibo Sky (H4) [<a href="#" onclick="$('#cite_pop_21').popup('show');">21</a>]</td>
+                        <td>1993</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>430</td>
+                        <td>8</td>
+                        <td>250</td>
+                        <td>32</td>
+                        <td>250</td>
+                        <td>&#126;40</td>
+                        <td>?</td>
+                        <td>See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1)</td>
+                        <td>See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1)</td>
+                        <td>240</td>
+                    </tr>
+                    <tr>
+                        <td>High Galactic Latitude Pulsar Survey of the Arecibo Sky (H5) [<a href="#" onclick="$('#cite_pop_21').popup('show');">21</a>]</td>
+                        <td>1994-95</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>430</td>
+                        <td>8</td>
+                        <td>250</td>
+                        <td>32</td>
+                        <td>250</td>
+                        <td>&#126;40</td>
+                        <td>?</td>
+                        <td>See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1)</td>
+                        <td>See High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1)</td>
+                        <td>527</td>
+                    </tr>
+                    <tr>
+                        <td>Arecibo Survey 4 Phase I [<a href="#" onclick="$('#cite_pop_22').popup('show');">22</a>]</td>
+                        <td>1991</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>430</td>
+                        <td>10</td>
+                        <td>78.125</td>
+                        <td>128</td>
+                        <td>516.625</td>
+                        <td>67.7</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>-8&deg; &lt; b &lt; 8&deg;,<br>35&deg; &lt; l &lt; 65&deg;</td>
+                        <td>235</td>
+                    </tr>
+                    <tr>
+                        <td>Arecibo Survey 4 Phase II [<a href="#" onclick="$('#cite_pop_23').popup('show');">23</a>]</td>
+                        <td>1992</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>429</td>
+                        <td>8</td>
+                        <td>250</td>
+                        <td>64</td>
+                        <td>250</td>
+                        <td>&#126;40</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>-50&deg; &lt; b &lt; -25&deg;,<br>70&deg; &lt; l &lt;130&deg;</td>
+                        <td>162</td>
+                    </tr>
+                    <tr>
+                        <td>Parkes Southern Pulsar Survey [<a href="#" onclick="$('#cite_pop_24').popup('show');">24</a>]</td>
+                        <td>1991-93</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>436</td>
+                        <td>32</td>
+                        <td>1250</td>
+                        <td>256</td>
+                        <td>300</td>
+                        <td>157.3</td>
+                        <td>1</td>
+                        <td>44299</td>
+                        <td>Entire southern hemisphere</td>
+                        <td>&#126;20626.5</td>
+                    </tr>
+                    <tr>
+                        <td>2nd Cambridge Survey [<a href="#" onclick="$('#cite_pop_25').popup('show');">25</a>]</td>
+                        <td>1993-94</td>
+                        <td><span class="flagicon"><img alt="IPS Array" src="images/IPS_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Interplanetary Scintillation Array</td>
+                        <td>81.5</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>256</td>
+                        <td>256</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>-20&deg; &gt; &delta; &gt; 86&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>Jodrell Millisecond Pulsar Survey [<a href="#" onclick="$('#cite_pop_26').popup('show');">26</a>]</td>
+                        <td>1993-94</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>418</td>
+                        <td>8</td>
+                        <td>125</td>
+                        <td>64</td>
+                        <td>300</td>
+                        <td>315</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>35&deg; &gt; &delta; &gt; 90&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>Green Bank Fast Pulsar Survey [<a href="#" onclick="$('#cite_pop_27').popup('show');">27</a>]</td>
+                        <td>1994-96</td>
+                        <td><span class="flagicon"><img alt="GBT" src="images/GBT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Green Bank</td>
+                        <td>370</td>
+                        <td>40</td>
+                        <td>78.125</td>
+                        <td>512</td>
+                        <td>256</td>
+                        <td>134</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>~77% of Northern Hemisphere</td>
+                        <td>17400</td>
+                    </tr>
+                    <tr>
+                        <td>Parkes Multibeam Pulsar Survey [<a href="#" onclick="$('#cite_pop_28').popup('show');">28</a>,<a href="#" onclick="$('#cite_pop_29').popup('show');">29</a>]</td>
+                        <td>1997</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1374</td>
+                        <td>288</td>
+                        <td>3000</td>
+                        <td>96</td>
+                        <td>250</td>
+                        <td>2100</td>
+                        <td>13</td>
+                        <td>2670</td>
+                        <td>|b| &lt; 5&deg;,<br>50&deg; &lt; l &lt; 260&deg;</td>
+                        <td>1550</td>
+                    </tr>
+                    <tr>
+                        <td>The Bologna submillisecond pulsar survey [<a href="#" onclick="$('#cite_pop_30').popup('show');">30</a>]</td>
+                        <td>1998-99</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/NC_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Northern Cross</td>
+                        <td>408</td>
+                        <td>4</td>
+                        <td>32</td>
+                        <td>128</td>
+                        <td>64</td>
+                        <td>67</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>4&deg; &lt; &delta; &lt; 42&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>Swinburne Intermediate-lat Pulsar Survey [<a href="#" onclick="$('#cite_pop_31').popup('show');">31</a>]</td>
+                        <td>1998-99</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1374</td>
+                        <td>288</td>
+                        <td>3000</td>
+                        <td>96</td>
+                        <td>125</td>
+                        <td>265</td>
+                        <td>13</td>
+                        <td>4764</td>
+                        <td>5&deg; &lt; b &lt; 15&deg;,<br>-100&deg; &lt; l &lt; 50&deg;</td>
+                        <td>1191</td>
+                    </tr>
+                    <tr>
+                        <td>Parkes High-lat Multibeam Pulsar Survey [<a href="#" onclick="$('#cite_pop_32').popup('show');">32</a>]</td>
+                        <td>2000-03</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1374</td>
+                        <td>288</td>
+                        <td>3000</td>
+                        <td>96</td>
+                        <td>125</td>
+                        <td>265</td>
+                        <td>13</td>
+                        <td>6456</td>
+                        <td>|b| &lt; 60&deg;,<br>220&deg; &lt; l &lt; 260&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>Survey of The Magellanic Clouds [<a href="#" onclick="$('#cite_pop_33').popup('show');">33</a>]</td>
+                        <td>2000-01</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1374</td>
+                        <td>288</td>
+                        <td>3000</td>
+                        <td>96</td>
+                        <td>1000</td>
+                        <td>8400</td>
+                        <td>13</td>
+                        <td>209</td>
+                        <td>Magellanic Clouds</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>1.4 GHz Arecibo Survey (DM &lt; 100) [<a href="#" onclick="$('#cite_pop_34').popup('show');">34</a>]</td>
+                        <td>2001-02</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>1175</td>
+                        <td>100</td>
+                        <td>0.390625</td>
+                        <td>256</td>
+                        <td>64</td>
+                        <td>7200</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>Every known Galactic globular cluster visible from Arecibo, within 70 kpc of the Sun without any selection bias toward larger or denser clusters. </td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>1.4 GHz Arecibo Survey (DM &gt; 100) [<a href="#" onclick="$('#cite_pop_34').popup('show');">34</a>]</td>
+                        <td>2001-02</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>1475</td>
+                        <td>100</td>
+                        <td>0.1953125</td>
+                        <td>512</td>
+                        <td>128</td>
+                        <td>7200</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>Every known Galactic globular cluster visible from Arecibo, within 70 kpc of the Sun without any selection bias toward larger or denser clusters.</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>Large Area Survey for Radio Pulsars [<a href="#" onclick="$('#cite_pop_35').popup('show');">35</a>]</td>
+                        <td>2001-02</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1374</td>
+                        <td>288</td>
+                        <td>3000</td>
+                        <td>96</td>
+                        <td>125</td>
+                        <td>256</td>
+                        <td>13</td>
+                        <td>7232</td>
+                        <td>15&deg; &le; b &le; 30&deg;,<br>-100&deg; &le; l &le; 50&deg;</td>
+                        <td>&#126;4150</td>
+                    </tr>
+                    <tr>
+                        <td>EGRET 56 Pulsar Survey [<a href="#" onclick="$('#cite_pop_36').popup('show');">36</a>]</td>
+                        <td>2002-03</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1374</td>
+                        <td>288</td>
+                        <td>3000</td>
+                        <td>96</td>
+                        <td>125</td>
+                        <td>2100</td>
+                        <td>13</td>
+                        <td>232</td>
+                        <td>5&deg; &lt; |b| &lt; 73&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>EGRET Error Box Survey [<a href="#" onclick="$('#cite_pop_37').popup('show');">37</a>]</td>
+                        <td>2003</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>327</td>
+                        <td>25</td>
+                        <td>48.828125</td>
+                        <td>512</td>
+                        <td>125</td>
+                        <td>260</td>
+                        <td>1</td>
+                        <td>224</td>
+                        <td>|b|&gt;5&deg;,<br>2&deg; &lt; &delta; &lt; 38&deg;</td>
+                        <td>9.6</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.naic.edu/~deneva/drift-search/" target="_blank">A0327 Pilot</a> [<a href="#" onclick="$('#cite_pop_38').popup('show');">38</a>]</td>
+                        <td>2003</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>327</td>
+                        <td>25</td>
+                        <td>48.828125</td>
+                        <td>512</td>
+                        <td>256</td>
+                        <td>60</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>-1&deg; &lt;  &delta; &lt;  28&deg;, excluding the region within 5&deg; of the Galactic plane</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>The Perseus Arm Pulsar Survey [<a href="#" onclick="$('#cite_pop_39').popup('show');">39</a>]</td>
+                        <td>2004-09</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1374</td>
+                        <td>288</td>
+                        <td>3000</td>
+                        <td>96</td>
+                        <td>125</td>
+                        <td>2100</td>
+                        <td>13</td>
+                        <td>913</td>
+                        <td>|b| &lt; 5&deg;,<br>200&deg; &lt; l &lt; 260&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>The 8gr8 Cygnus Survey [<a href="#" onclick="$('#cite_pop_40').popup('show');">40</a>,<a href="#" onclick="$('#cite_pop_41').popup('show');">41</a>]</td>
+                        <td>2004-05</td>
+                        <td><span class="flagicon"><img alt="Westerbork" src="images/Westerbork_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Westerbork</td>
+                        <td>328</td>
+                        <td>10</td>
+                        <td>19.53125</td>
+                        <td>512</td>
+                        <td>819.2</td>
+                        <td>6872</td>
+                        <td>?</td>
+                        <td>144</td>
+                        <td>The region of the Galactic plane between<br>-0.25&deg; &lt; b &lt; 7.25&deg;,<br>100&deg; &lt; l &lt; 40&deg;</td>
+                        <td>420</td>
+                    </tr>
+                    <tr>
+                        <td>Parkes Deep Northern Galactic Plane Survey [<a href="#" onclick="$('#cite_pop_42').popup('show');">42</a>]</td>
+                        <td>2004-05</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1374</td>
+                        <td>288</td>
+                        <td>3000</td>
+                        <td>96</td>
+                        <td>125</td>
+                        <td>4200</td>
+                        <td>13</td>
+                        <td>120</td>
+                        <td>|b| &le; 2&deg;,<br>50&deg; &le; l &le; 60&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.naic.edu/~palfa/newpulsars/" target="_blank">P-ALFA Survey (intial) (WAPP)</a> [<a href="#" onclick="$('#cite_pop_43').popup('show');">43</a>,<a href="#" onclick="$('#cite_pop_44').popup('show');">44</a>]</td>
+                        <td>2004</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>1420</td>
+                        <td>100</td>
+                        <td>390.625</td>
+                        <td>256</td>
+                        <td>64</td>
+                        <td>134</td>
+                        <td>7</td>
+                        <td>1784</td>
+                        <td>|b| &le; 5&deg;,<br>32&deg; &le; l &le; 77&deg;,<br>168&deg; &le; l &le; 214&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.naic.edu/~palfa/newpulsars/" target="_blank">P-ALFA Survey (anticipated) (WAPP)</a> [<a href="#" onclick="$('#cite_pop_43').popup('show');">43</a>,<a href="#" onclick="$('#cite_pop_44').popup('show');">44</a>]</td>
+                        <td>2004-10</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>1420</td>
+                        <td>300</td>
+                        <td>390.625</td>
+                        <td>1024</td>
+                        <td>64</td>
+                        <td>134</td>
+                        <td>7</td>
+                        <td>?</td>
+                        <td>|b| &le; 5&deg;,<br>32&deg; &le; l &le; 77&deg;,<br>168&deg; &le; l &le; 214&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>6.5 Ghz Multibeam Pulsar Survey [<a href="#" onclick="$('#cite_pop_45').popup('show');">45</a>]</td>
+                        <td>2006-07</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>6591</td>
+                        <td>576</td>
+                        <td>3000</td>
+                        <td>192</td>
+                        <td>125</td>
+                        <td>1055</td>
+                        <td>7</td>
+                        <td>2560</td>
+                        <td>|b| &le; 0.25&deg;,<br>-60&deg; &le; l &le; 30&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://astro.phys.wvu.edu/GBTdrift350/" target="_blank">Green Bank 350 MHz Drift Scan</a> [<a href="#" onclick="$('#cite_pop_46').popup('show');">46</a>]</td>
+                        <td>2007</td>
+                        <td><span class="flagicon"><img alt="GBT" src="images/GBT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Green Bank</td>
+                        <td>350</td>
+                        <td>50</td>
+                        <td>24.4140625</td>
+                        <td>2048</td>
+                        <td>81.92</td>
+                        <td>140</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>Azimuth restrictions allowed access to declination ranges of -7&deg;.72 &lt; &delta; &lt; 38&deg;.43,<br>-20&deg;.66 &lt; &delta; &lt; 38&deg;.43,<br>for azimuths of 229&deg; and 192&deg; </td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://astro.phys.wvu.edu/GBTdrift350/" target="_blank">GBT350 (Spigot)</a> [<a href="#" onclick="$('#cite_pop_38').popup('show');">38</a>]</td>
+                        <td>2007</td>
+                        <td><span class="flagicon"><img alt="GBT" src="images/GBT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Green Bank</td>
+                        <td>350</td>
+                        <td>50</td>
+                        <td>24.4140625</td>
+                        <td>2048</td>
+                        <td>82</td>
+                        <td>140</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>10300</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.naic.edu/~palfa/newpulsars/" target="_blank">P-ALFA Survey (MOCK)</a> [<a href="#" onclick="$('#cite_pop_44').popup('show');">44</a>,<a href="#" onclick="$('#cite_pop_47').popup('show');">47</a>,<a href="#" onclick="$('#cite_pop_48').popup('show');">48</a>]</td>
+                        <td>2009-present</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>1375</td>
+                        <td>322.6</td>
+                        <td>336.041667</td>
+                        <td>960</td>
+                        <td>65.5</td>
+                        <td>120-300</td>
+                        <td>7</td>
+                        <td>&#126;5045</td>
+                        <td>|b| &le; 5&deg;,<br>30&deg; &le; l &le; 78&deg;,<br>162&deg; &le; l &le; 214&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://arcc.phys.utb.edu/gbncc/" target="_blank">GBNCC (GUPPI)</a> [<a href="#" onclick="$('#cite_pop_38').popup('show');">38</a>,<a href="#" onclick="$('#cite_pop_49').popup('show');">49</a>]</td>
+                        <td>2009-14</td>
+                        <td><span class="flagicon"><img alt="GBT" src="images/GBT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Green Bank</td>
+                        <td>350</td>
+                        <td>100</td>
+                        <td>24.4140625</td>
+                        <td>4096</td>
+                        <td>82</td>
+                        <td>120</td>
+                        <td>?</td>
+                        <td>&#126;30000</td>
+                        <td>&delta; &gt; -40&deg;,<br>(Sky visible to Green Bank)</td>
+                        <td>&gt;13500</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://sites.google.com/site/htrusouthdeep/home" target="_blank">Southern HTRU (LOW)</a> [<a href="#" onclick="$('#cite_pop_50').popup('show');">50</a>]</td>
+                        <td>2010-12</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1352</td>
+                        <td>340</td>
+                        <td>390.625</td>
+                        <td>870</td>
+                        <td>64</td>
+                        <td>4300</td>
+                        <td>13</td>
+                        <td>1230</td>
+                        <td>|b| &le; 3&deg;.5,<br>-80&deg; &lt; l &lt; 30&deg;</td>
+                        <td>~840</td>
+                    </tr>
+                    <tr>
+                        <td>Southern HTRU (MED) [<a href="#" onclick="$('#cite_pop_50').popup('show');">50</a>,<a href="#" onclick="$('#cite_pop_51').popup('show');">51</a>]</td>
+                        <td>2010-12</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1352</td>
+                        <td>340</td>
+                        <td>390.625</td>
+                        <td>870</td>
+                        <td>64</td>
+                        <td>540</td>
+                        <td>13</td>
+                        <td>7312</td>
+                        <td>|b| &le; 15&deg;,<br>-120&deg; &lt; l &lt; 30&deg;</td>
+                        <td>~4500</td>
+                    </tr>
+                    <tr>
+                        <td>Southern HTRU (HIGH) [<a href="#" onclick="$('#cite_pop_50').popup('show');">50</a>]</td>
+                        <td>2010-12</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1352</td>
+                        <td>340</td>
+                        <td>390.625</td>
+                        <td>870</td>
+                        <td>64</td>
+                        <td>270</td>
+                        <td>13</td>
+                        <td>34099</td>
+                        <td>&delta; &lt; +10&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.naic.edu/~deneva/drift-search/" target="_blank">A0327 (MOCK)</a> [<a href="#" onclick="$('#cite_pop_38').popup('show');">38</a>]</td>
+                        <td>2010</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>327</td>
+                        <td>57</td>
+                        <td>55.6640625</td>
+                        <td>1024</td>
+                        <td>125</td>
+                        <td>60</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>-1&deg; &lt; &delta; &lt; 28&deg;, excluding the region within 5&deg; of the Galactic plane</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>LPPS [<a href="#" onclick="$('#cite_pop_52').popup('show');">52</a>]</td>
+                        <td>2010</td>
+                        <td><span class="flagicon"><img alt="LOFAR" src="images/Lofar_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>LOFAR</td>
+                        <td>142</td>
+                        <td>6.8</td>
+                        <td>12.1428571</td>
+                        <td>560</td>
+                        <td>655</td>
+                        <td>3420</td>
+                        <td>7</td>
+                        <td>246</td>
+                        <td>?</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>LOTAS [<a href="#" onclick="$('#cite_pop_52').popup('show');">52</a>]</td>
+                        <td>2010-11</td>
+                        <td><span class="flagicon"><img alt="LOFAR" src="images/Lofar_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>LOFAR</td>
+                        <td>143</td>
+                        <td>48</td>
+                        <td>12.295082</td>
+                        <td>3904</td>
+                        <td>1300</td>
+                        <td>1020</td>
+                        <td>19</td>
+                        <td>206</td>
+                        <td>?</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>Northern HTRU (LOW) [<a href="#" onclick="$('#cite_pop_53').popup('show');">53</a>,<a href="#" onclick="$('#cite_pop_54').popup('show');">54</a>]</td>
+                        <td>2010-14</td>
+<td><span class="flagicon"><img alt="Effelsberg" src="images/Effelsberg_128x128.png" width="32" height="32" class="thumbborder" /></span>Effelsberg</td>
+                        <td>1360</td>
+                        <td>240</td>
+                        <td>585.9</td>
+                        <td>410</td>
+                        <td>54.61</td>
+                        <td>1500</td>
+                        <td>7</td>
+                        <td>12485</td>
+                        <td>|b| &lt; 3&deg;.5</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>Northern HTRU (MED) [<a href="#" onclick="$('#cite_pop_53').popup('show');">53</a>,<a href="#" onclick="$('#cite_pop_54').popup('show');">54</a>]
+                        </td>
+                        <td>2010-14</td>
+                        <td><span class="flagicon"><img alt="Effelsberg" src="images/Effelsberg_128x128.png" width="32" height="32" class="thumbborder" /></span>Effelsberg</td>
+                        <td>1360</td>
+                        <td>240</td>
+                        <td>585.9</td>
+                        <td>410</td>
+                        <td>54.61</td>
+                        <td>180</td>
+                        <td>7</td>
+                        <td>53581</td>
+                        <td>|b| &lt; 15&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>Northern HTRU (HIGH) [<a href="#" onclick="$('#cite_pop_53').popup('show');">53</a>,<a href="#" onclick="$('#cite_pop_48').popup('show');">54</a>]
+                        </td>
+                        <td>2010-14</td>
+                        <td><span class="flagicon"><img alt="Effelsberg" src="images/Effelsberg_128x128.png" width="32" height="32" class="thumbborder" /></span>Effelsberg</td>
+                        <td>1360</td>
+                        <td>240</td>
+                        <td>585.9</td>
+                        <td>410</td>
+                        <td>54.61</td>
+                        <td>90</td>
+                        <td>7</td>
+                        <td>152305</td>
+                        <td>|b| &gt; 15&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>SPAN512 [<a href="#" onclick="$('#cite_pop_55').popup('show');">55</a>]</td>
+                        <td>2012</td>
+                        <td><span class="flagicon"><img alt="Nancy" src="images/Nancy_128x128.png" width="32" height="32" class="thumbborder" /></span>Nan&ccedil;ay</td>
+                        <td>1486</td>
+                        <td>512</td>
+                        <td>500</td>
+                        <td>1024</td>
+                        <td>64</td>
+                        <td>1080</td>
+                        <td>2</td>
+                        <td>5800</td>
+                        <td>3.5&deg; &#60; |b| &#60;5&deg;,<br>74&deg;&#8804; l &#60;150&deg;</td>
+                        <td>230</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.naic.edu/~deneva/drift-search/" target="_blank">A0327 (PUPPI)</a> [<a href="#" onclick="$('#cite_pop_38').popup('show');">38</a>]</td>
+                        <td>2014</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>327</td>
+                        <td>69</td>
+                        <td>24.5028409</td>
+                        <td>2816</td>
+                        <td>82</td>
+                        <td>60</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>-1&deg; &lt; &delta; &lt; 28&deg;, excluding the region within 5&deg; of the Galactic plane</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.astron.nl/lotaas/" target="_blank" >LOTAAS</a> [<a href="#" onclick="$('#cite_pop_56').popup('show');">56</a>,<a href="#" onclick="$('#cite_pop_57').popup('show');">57</a>,<a href="#" onclick="$('#cite_pop_58').popup('show');">58</a>]</td>
+                        <td>2013</td>
+                        <td><span class="flagicon"><img alt="LOFAR" src="images/Lofar_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>LOFAR</td>
+                        <td>135.248</td>
+                        <td>94.9219</td>
+                        <td>12.207</td>
+                        <td>2592</td>
+                        <td>491.52</td>
+                        <td>3600</td>
+                        <td>222</td>
+                        <td>1950</td>
+                        <td>All-Northern-sky survey</td>
+                        <td>20625.5</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://sites.google.com/site/publicsuperb/discoveries" target="_blank">SUPERB</a> [<a href="#" onclick="$('#cite_pop_59').popup('show');">59</a>]</td>
+                        <td>2014</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1374</td>
+                        <td>340</td>
+                        <td>332.03125</td>
+                        <td>1024</td>
+                        <td>32</td>
+                        <td>540</td>
+                        <td>13</td>
+                        <td>6644</td>
+                        <td>-25&deg; &le; |b| &le; 25&deg;</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>GMRT High Resolution Southern Sky Survey (MID) [<a href="#" onclick="$('#cite_pop_60').popup('show');">60</a>]</td>
+                        <td>2014</td>
+                        <td><span class="flagicon"><img alt="GMRT" src="images/GMRT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>GMRT</td>
+                        <td>322</td>
+                        <td>32</td>
+                        <td>15.625</td>
+                        <td>2048</td>
+                        <td>60</td>
+                        <td>1200</td>
+                        <td>1</td>
+                        <td>682</td>
+                        <td>5&deg; &#60; |b| &#60; 20&deg;,<br>-40&deg; &#60; &delta; &#60; -54&deg;</td>
+                        <td>1212</td>
+                    </tr>
+                    <tr>
+                        <td>GMRT High Resolution Southern Sky Survey (HIGH) [<a href="#" onclick="$('#cite_pop_60').popup('show');">60</a>]</td>
+                        <td>2014</td>
+                        <td><span class="flagicon"><img alt="GMRT" src="images/GMRT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>GMRT</td>
+                        <td>322</td>
+                        <td>32</td>
+                        <td>31.25</td>
+                        <td>1024</td>
+                        <td>30</td>
+                        <td>720</td>
+                        <td>1</td>
+                        <td>911</td>
+                        <td>|b| &#62; 20&deg;,<br>-40&deg; &#60; &delta; &#60; -54&deg;</td>
+                        <td>1620</td>
+                    </tr>
+                    <tr>
+                        <td>FAST* [<a href="#" onclick="$('#cite_pop_61').popup('show');">61</a>]</td>
+                        <td>2016</td>
+                        <td><span class="flagicon"><img alt="FAST" src="images/FAST_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>FAST</td>
+                        <td>1315</td>
+                        <td>400</td>
+                        <td>42.1052632</td>
+                        <td>9500</td>
+                        <td>100</td>
+                        <td>600</td>
+                        <td>19</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                    </tr>
+                    <tr>
+                        <td>SKA** (Configuration A 3000 Dishes) [<a href="#" onclick="$('#cite_pop_62').popup('show');">62</a>]</td>
+                        <td>2020-22</td>
+                        <td><span class="flagicon"><img alt="SKA" src="images/SKA_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>SKA</td>
+                        <td>1250</td>
+                        <td>500</td>
+                        <td>50</td>
+                        <td>9500</td>
+                        <td>64</td>
+                        <td>1800</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>35000</td>
+                    </tr>
+                    <tr>
+                        <td>SKA** (Configuration B Aperture Array) [<a href="#" onclick="$('#cite_pop_62').popup('show');">62</a>]</td>
+                        <td>2020-22</td>
+                        <td><span class="flagicon"><img alt="SKA" src="images/SKA_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>SKA</td>
+                        <td>650</td>
+                        <td>300</td>
+                        <td>50</td>
+                        <td>9500</td>
+                        <td>64</td>
+                        <td>1800</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>35000</td>
+                    </tr>
+                    <!-- Add a new entry here if you wish. -->
+                </table>
+
+<p>* Projected.</p>
+<p>** Simulation and best guess estimate.</p>    
+
+        </div>
+            <!--  Javascript for table interactivity, do not delete. -->
+            <script type="text/javascript">
+                $('#spec_table').dynatable();
+            </script>
+        </div>
+    </div>
+    <!--  Now the second table containing data processing details. -->
+    <div id='content_2' class='contained'>
+        <div id='post_2'>
+            <h2 class="first-heading">Data Processing Information</h2>
+            <div class="dynatable-demo">
+                <table id="proctable" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Survey</th>
+                            <th>Survey Year</th>
+                            <th>Telescope</th>
+                            <th>Samples per second</th>
+                            <th>Bits</th>
+                            <th>DM Trials</th>
+                            <th>DM Trial lower limit</th>
+                            <th>DM Trial upper limit</th>
+                            <th>Candidates</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>1st Cambridge Survey [<a href="#" onclick="$('#cite_pop_1').popup('show');">1</a>]</td>
+                        <td>1967</td>
+                        <td><span class="flagicon"><img alt="IPS Array" src="images/IPS_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Interplanetary Scintillation Array</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>1st Molonglo Survey [<a href="#" onclick="$('#cite_pop_1').popup('show');">1</a>]</td>
+                        <td>1968</td>
+                        <td><span class="flagicon"><img alt="Molonglo" src="images/Molonglo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Molonglo</td>
+                        <td>400</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>Square degree value obtained from [<a href="#" onclick="$('#cite_pop_6').popup('show');">6</a>]</td>
+                    </tr>
+                    <tr>
+                        <td>Search at Low Galactic Latitudes [<a href="#" onclick="$('#cite_pop_2').popup('show');">2</a>,<a href="#" onclick="$('#cite_pop_3').popup('show');">3</a>]</td>
+                        <td>1969</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>Survey year estimated from publication date, reports 2^14 samples.</td>
+                    </tr>
+                    <tr>
+                        <td>Arecibo Survey 1 [<a href="#" onclick="$('#cite_pop_4').popup('show');">4</a>]</td>
+                        <td>197?</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>5714.28571428571</td>
+                        <td>?</td>
+                        <td>64</td>
+                        <td>0</td>
+                        <td>1240</td>
+                        <td>?</td>
+                        <td>0.5 sq degrees searched per hour. Pointings derived from Sq degrees searched &amp; fact that a point in the sky remained in the beam for 3.3 minutes.</td>
+                    </tr>
+                    <tr>
+                        <td>Jodrell Survey A [<a href="#" onclick="$('#cite_pop_5').popup('show');">5</a>]</td>
+                        <td>1972</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>50</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>0</td>
+                        <td>&#126;500</td>
+                        <td>?</td>
+                        <td>1.5 sr searched</td>
+                    </tr>
+                    <tr>
+                        <td>2nd Molonglo Survey [<a href="#" onclick="$('#cite_pop_6').popup('show');">6</a>]</td>
+                        <td>1977</td>
+                        <td><span class="flagicon"><img alt="Molonglo" src="images/Molonglo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Molonglo</td>
+                        <td>200</td>
+                        <td>4</td>
+                        <td>?</td>
+                        <td>0</td>
+                        <td>130/520/800</td>
+                        <td>2500</td>
+                        <td>8.4 sr searched. 105 days of total observations.</td>
+                    </tr>
+                    <tr>
+                        <td>Green Bank Northern Hemisphere Survey [<a href="#" onclick="$('#cite_pop_7').popup('show');">7</a>,<a href="#" onclick="$('#cite_pop_8').popup('show');">8</a>]
+                        </td>
+                        <td>1977</td>
+                        <td><span class="flagicon"><img alt="GBT" src="images/GBT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Green Bank</td>
+                        <td>479.041916167665</td>
+                        <td>?</td>
+                        <td>8</td>
+                        <td>0</td>
+                        <td>120</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Princeton-NRAO Survey [<a href="#" onclick="$('#cite_pop_9').popup('show');">9</a>]</td>
+                        <td>1982-83</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>1439.99740800351</td>
+                        <td>3</td>
+                        <td>8</td>
+                        <td>0</td>
+                        <td>117</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Green Bank Short-period Survey [<a href="#" onclick="$('#cite_pop_10').popup('show');">10</a>]</td>
+                        <td>1983</td>
+                        <td><span class="flagicon"><img alt="GBT" src="images/GBT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Green Bank</td>
+                        <td>16000</td>
+                        <td>3</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Jodrell Survey B [<a href="#" onclick="$('#cite_pop_11').popup('show');">11</a>]</td>
+                        <td>1983-84</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>4000</td>
+                        <td>3</td>
+                        <td>?</td>
+                        <td>0</td>
+                        <td>17000</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Arecibo Survey 2 (a) Phase II Princeton-NRAO [<a href="#" onclick="$('#cite_pop_12').popup('show');">12</a>]</td>
+                        <td>1983</td>
+                        <td><span class="flagicon"><img alt="GBT" src="images/GBT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Green Bank</td>
+                        <td>16000</td>
+                        <td>3</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>5405</td>
+                        <td>2x10^6 combinations of period and DM tried.</td>
+                    </tr>
+                    <tr>
+                        <td>Arecibo Survey 2 (b) [<a href="#" onclick="$('#cite_pop_12').popup('show');">12</a>]</td>
+                        <td>1984-85</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>53333.3333333333</td>
+                        <td>3</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>2x10^6 combinations of period and DM tried.</td>
+                    </tr>
+                    <tr>
+                        <td>Survey for millisecond pulsars at Molonglo [<a href="#" onclick="$('#cite_pop_13').popup('show');">13</a>]</td>
+                        <td>1985-86</td>
+                        <td><span class="flagicon"><img alt="Molonglo" src="images/Molonglo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Molonglo</td>
+                        <td>32000</td>
+                        <td>?</td>
+                        <td>12</td>
+                        <td>11/175</td>
+                        <td>400/1750</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Jodrell Survey C (610 MHz) [<a href="#" onclick="$('#cite_pop_14').popup('show');">14</a>]</td>
+                        <td>1985-87</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>106666.666666667</td>
+                        <td>1</td>
+                        <td>39</td>
+                        <td>32/64/85</td>
+                        <td>373/746/995</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Jodrell Survey C (925 MHz) [<a href="#" onclick="$('#cite_pop_14').popup('show');">14</a>]</td>
+                        <td>1985-87</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>106666.666666667</td>
+                        <td>1</td>
+                        <td>39</td>
+                        <td>114</td>
+                        <td>1430</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Jodrell Survey C (928 MHz) [<a href="#" onclick="$('#cite_pop_14').popup('show');">14</a>]</td>
+                        <td>1985-87</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>106666.666666667</td>
+                        <td>1</td>
+                        <td>39</td>
+                        <td>114</td>
+                        <td>1430</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                       <td>Jodrell Survey C (1420 MHz) [<a href="#" onclick="$('#cite_pop_14').popup('show');">14</a>]</td>
+                        <td>1985-87</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>106666.666666667</td>
+                        <td>1</td>
+                        <td>39</td>
+                        <td>104</td>
+                        <td>1770</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Parkes Globular Cluster Survey (20cm) [<a href="#" onclick="$('#cite_pop_15').popup('show');">15</a>,<a href="#" onclick="$('#cite_pop_16').popup('show');">16</a>]</td>
+                        <td>1989-90</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>266667/213333</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td>0</td>
+                        <td>309</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Parkes Globular Cluster Survey (50cm) [<a href="#" onclick="$('#cite_pop_15').popup('show');">15</a>,<a href="#" onclick="$('#cite_pop_16').popup('show');">16</a>]</td>
+                        <td>1988-90</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>426666.666666667</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td>?</td>
+                        <td>309</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Arecibo Survey 3 [<a href="#" onclick="$('#cite_pop_17').popup('show');">17</a>]</td>
+                        <td>198?</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>247761.916283571</td>
+                        <td>4</td>
+                        <td>256</td>
+                        <td>0</td>
+                        <td>507</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Parkes 20-cm Survey (System I) [<a href="#" onclick="$('#cite_pop_18').popup('show');">18</a>]</td>
+                        <td>1988</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>266666.666666667</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td>0</td>
+                        <td>2000</td>
+                        <td>150000</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Parkes 20-cm Survey (System II) [<a href="#" onclick="$('#cite_pop_18').popup('show');">18</a>]</td>
+                        <td>1988</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>53333.3333333333</td>
+                        <td>1</td>
+                        <td>100</td>
+                        <td>0</td>
+                        <td>3000</td>
+                        <td>150000</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Arecibo 430 MHz Intermediate Galactic Latitude Survey [<a href="#" onclick="$('#cite_pop_19').popup('show');">19</a>]</td>
+                        <td>1989-91</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>252652.356279299</td>
+                        <td>?</td>
+                        <td>163</td>
+                        <td>0</td>
+                        <td>200</td>
+                        <td>?</td>
+                        <td>113 survey hours, each pointing was 2^17 samples</td>
+                    </tr>
+                    <tr>
+                        <td>High Galactic Latitude Pulsar Survey of the Arecibo Sky (H1) [<a href="#" onclick="$('#cite_pop_20').popup('show');">20</a>]</td>
+                        <td>1990</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>252964.42687747</td>
+                        <td>4</td>
+                        <td>64</td>
+                        <td>0</td>
+                        <td>50</td>
+                        <td>?</td>
+                        <td>91,000 points on sky observed during H1 to H5.</td>
+                    </tr>
+                    <tr>
+                        <td>High Galactic Latitude Pulsar Survey of the Arecibo Sky (H2) [<a href="#" onclick="$('#cite_pop_20').popup('show');">20</a>]</td>
+                        <td>1991</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>128000</td>
+                        <td>3</td>
+                        <td>64</td>
+                        <td>0</td>
+                        <td>50</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>High Galactic Latitude Pulsar Survey of the Arecibo Sky (H3) [<a href="#" onclick="$('#cite_pop_20').popup('show');">20</a>]</td>
+                        <td>1992</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>128000</td>
+                        <td>3</td>
+                        <td>64</td>
+                        <td>0</td>
+                        <td>50</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>High Galactic Latitude Pulsar Survey of the Arecibo Sky (H4) [<a href="#" onclick="$('#cite_pop_20').popup('show');">20</a>]</td>
+                        <td>1993</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>128000</td>
+                        <td>3</td>
+                        <td>64</td>
+                        <td>0</td>
+                        <td>50</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>High Galactic Latitude Pulsar Survey of the Arecibo Sky (H5) [<a href="#" onclick="$('#cite_pop_21').popup('show');">21</a>]</td>
+                        <td>1994-95</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>128000</td>
+                        <td>3</td>
+                        <td>64</td>
+                        <td>0</td>
+                        <td>50</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Arecibo Survey 4 Phase I [<a href="#" onclick="$('#cite_pop_22').popup('show');">22</a>]</td>
+                        <td>1991</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>247761.916283571</td>
+                        <td>3</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>Assumed same as Phase II.</td>
+                    </tr>
+                    <tr>
+                        <td>Arecibo Survey 4 Phase II [<a href="#" onclick="$('#cite_pop_23').popup('show');">23</a>]</td>
+                        <td>1992</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>256000</td>
+                        <td>3</td>
+                        <td>192</td>
+                        <td>0</td>
+                        <td>300</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Parkes Southern Pulsar Survey [<a href="#" onclick="$('#cite_pop_24').popup('show');">24</a>]</td>
+                        <td>1991-93</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>853333.333333333</td>
+                        <td>4</td>
+                        <td>738</td>
+                        <td>0</td>
+                        <td>777</td>
+                        <td>40000</td>
+                        <td>210 MB of data per observation</td>
+                    </tr>
+                    <tr>
+                        <td>2nd Cambridge Survey [<a href="#" onclick="$('#cite_pop_25').popup('show');">25</a>]</td>
+                        <td>1993-94</td>
+                        <td><span class="flagicon"><img alt="IPS Array" src="images/IPS_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Interplanetary Scintillation Array</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>640</td>
+                        <td>0</td>
+                        <td>102.55</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Jodrell Millisecond Pulsar Survey [<a href="#" onclick="$('#cite_pop_26').popup('show');">26</a>]</td>
+                        <td>1993-94</td>
+                        <td><span class="flagicon"><img alt="Jodrell Bank" src="images/Jodrell_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Lovell</td>
+                        <td>213333.3333</td>
+                        <td>1</td>
+                        <td>182</td>
+                        <td>0</td>
+                        <td>770</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Green Bank Fast Pulsar Survey [<a href="#" onclick="$('#cite_pop_27').popup('show');">27</a>]</td>
+                        <td>1994-96</td>
+                        <td><span class="flagicon"><img alt="GBT" src="images/GBT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Green Bank</td>
+                        <td>2000000</td>
+                        <td>1</td>
+                        <td>512</td>
+                        <td>0</td>
+                        <td>20</td>
+                        <td>?</td>
+                        <td>4GB of data collected every 4.8 hours.</td>
+                    </tr>
+                    <tr>
+                        <td>Parkes Multibeam Pulsar Survey [<a href="#" onclick="$('#cite_pop_28').popup('show');">28</a>,<a href="#" onclick="$('#cite_pop_29').popup('show');">29</a>]</td>
+                        <td>1997</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>384000</td>
+                        <td>1</td>
+                        <td>325</td>
+                        <td>0</td>
+                        <td>2203</td>
+                        <td>8000000</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Bologna submillisecond pulsar survey [<a href="#" onclick="$('#cite_pop_30').popup('show');">30</a>]</td>
+                        <td>1998-99</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/NC_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Northern Cross</td>
+                        <td>2000000</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Swinburne Intermediate-lat Pulsar Survey [<a href="#" onclick="$('#cite_pop_31').popup('show');">31</a>]</td>
+                        <td>1998-99</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>768000</td>
+                        <td>1</td>
+                        <td>375</td>
+                        <td>0</td>
+                        <td>562.5</td>
+                        <td>&gt; 200000</td>
+                        <td>Four pointings gives roughly 1 degree so 4764/4 = 1191. 30GB candidate data even after filtering. 1.6TB total data set.</td>
+                    </tr>
+                    <tr>
+                        <td>Parkes High-lat Multibeam Pulsar Survey [<a href="#" onclick="$('#cite_pop_32').popup('show');">32</a>]</td>
+                        <td>2000-03</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>768000</td>
+                        <td>1</td>
+                        <td>?</td>
+                        <td>0</td>
+                        <td>1088</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Survey of The Magellanic Clouds [<a href="#" onclick="$('#cite_pop_33').popup('show');">33</a>]</td>
+                        <td>2000-01</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>96000</td>
+                        <td>1</td>
+                        <td>228</td>
+                        <td>0</td>
+                        <td>2200</td>
+                        <td>?</td>
+                        <td>Different DM searches: 102 trials between 0 and 277 cm-3 (1 ms time res), 42 between 0 and 550 cm-3 (2 ms time res), 42 between 0 and 1100 cm-3 (4 ms time res), 42 between 0 and 2200 cm-3 (8 ms time res).</td>
+                    </tr>
+                    <tr>
+                        <td>1.4 GHz Arecibo Survey (DM &lt; 100) [<a href="#" onclick="$('#cite_pop_34').popup('show');">34</a>]</td>
+                        <td>2001-02</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>4000000</td>
+                        <td>16</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>8MB-1 or 30GB per hour, 4 TB in total</td>
+                    </tr>
+                    <tr>
+                        <td>1.4 GHz Arecibo Survey (DM &gt; 100) [<a href="#" onclick="$('#cite_pop_34').popup('show');">34</a>]</td>
+                        <td>2001-02</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>4000000</td>
+                        <td>16</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>Same as 1.4 GHz Arecibo Survey (DM &lt; 100).</td>
+                    </tr>
+                    <tr>
+                        <td>Large Area Survey for Radio Pulsars [<a href="#" onclick="$('#cite_pop_35').popup('show');">35</a>]</td>
+                        <td>2001-02</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>768000</td>
+                        <td>1</td>
+                        <td>375</td>
+                        <td>0</td>
+                        <td>562.5</td>
+                        <td>9307584</td>
+                        <td>2.4TB of data in total.</td>
+                    </tr>
+                    <tr>
+                        <td>EGRET 56 Pulsar Survey [<a href="#" onclick="$('#cite_pop_36').popup('show');">36</a>]</td>
+                        <td>2002-03</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>768000</td>
+                        <td>1</td>
+                        <td>150</td>
+                        <td>0</td>
+                        <td>542</td>
+                        <td>?</td>
+                        <td>200 MB of data per beam and 600GB in total.</td>
+                    </tr>
+                    <tr>
+                        <td>EGRET Error Box Survey [<a href="#" onclick="$('#cite_pop_37').popup('show');">37</a>]</td>
+                        <td>2003</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>4096000</td>
+                        <td>?</td>
+                        <td>392</td>
+                        <td>0</td>
+                        <td>491.2</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.naic.edu/~deneva/drift-search/" target="_blank">A0327 Pilot</a> [<a href="#" onclick="$('#cite_pop_38').popup('show');">38</a>]</td>
+                        <td>2003</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>2000000</td>
+                        <td>16 (4 scaled)</td>
+                        <td>6358</td>
+                        <td>0</td>
+                        <td>1000</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>The Perseus Arm Pulsar Survey [<a href="#" onclick="$('#cite_pop_39').popup('show');">39</a>]</td>
+                        <td>2004-09</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>768000</td>
+                        <td>1</td>
+                        <td>325/183</td>
+                        <td>0</td>
+                        <td>1088/1500</td>
+                        <td>?</td>
+                        <td>Two pipelines, HTRU and PMFind so different DM trial parameters.</td>
+                    </tr>
+                    <tr>
+                        <td>The 8gr8 Cygnus Survey [<a href="#" onclick="$('#cite_pop_40').popup('show');">40</a>,<a href="#" onclick="$('#cite_pop_41').popup('show');">41</a>]</td>
+                        <td>2004-05</td>
+                        <td><span class="flagicon"><img alt="Westerbork" src="images/Westerbork_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Westerbork</td>
+                        <td>625000</td>
+                        <td>?</td>
+                        <td>488</td>
+                        <td>0</td>
+                        <td>340</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Parkes Deep Northern Galactic Plane Survey [<a href="#" onclick="$('#cite_pop_42').popup('show');">42</a>]</td>
+                        <td>2004-05</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>768000</td>
+                        <td>1</td>
+                        <td>496</td>
+                        <td>1.1</td>
+                        <td>4931</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.naic.edu/~palfa/newpulsars/" target="_blank">P-ALFA Survey (intial) (WAPP)</a> [<a href="#" onclick="$('#cite_pop_43').popup('show');">43</a>,<a href="#" onclick="$('#cite_pop_44').popup('show');">44</a>]</td>
+                        <td>2004</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>4000000</td>
+                        <td>16</td>
+                        <td>96</td>
+                        <td>0</td>
+                        <td>980</td>
+                        <td>See P-Alfa Mock</td>
+                        <td>0.3TB per hour.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.naic.edu/~palfa/newpulsars/" target="_blank">P-ALFA Survey (anticipated) (WAPP)</a> [<a href="#" onclick="$('#cite_pop_43').popup('show');">43</a>,<a href="#" onclick="$('#cite_pop_44').popup('show');">44</a>]</td>
+                        <td>2004-10</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>16000000</td>
+                        <td>16</td>
+                        <td>96/1272</td>
+                        <td>0</td>
+                        <td>980/1000</td>
+                        <td>See P-ALFA Survey (MOCK).</td>
+                        <td>0.3TB of data per hour. 2 byte integers stored at 64 microsecond intervals. Different DM trial values for periodicity search/single pulse search (see <a href="#" onclick="$('#cite_pop_38').popup('show');">Deneva et al.</a>).</td>
+                    </tr>
+                    <tr>
+                        <td>6.5 Ghz Multibeam Pulsar Survey [<a href="#" onclick="$('#cite_pop_45').popup('show');">45</a>]</td>
+                        <td>2006-07</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>1536000</td>
+                        <td>1</td>
+                        <td>&#126;286</td>
+                        <td>0</td>
+                        <td>2000</td>
+                        <td>&gt;3500000</td>
+                        <td>5TB of data collected. 170 candidates per beam = over 3.5 million for the survey.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://astro.phys.wvu.edu/GBTdrift350/" target="_blank">Green Bank 350 MHz Drift Scan</a> [<a href="#" onclick="$('#cite_pop_40').popup('show');">46</a>]</td>
+                        <td>2007</td>
+                        <td><span class="flagicon"><img alt="GBT" src="images/GBT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Green Bank</td>
+                        <td>25000000</td>
+                        <td>16</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>1491 hours of data taken.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://astro.phys.wvu.edu/GBTdrift350/" target="_blank">GBT350 (Spigot)</a> [<a href="#" onclick="$('#cite_pop_38').popup('show');">38</a>]</td>
+                        <td>2007</td>
+                        <td><span class="flagicon"><img alt="GBT" src="images/GBT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Green Bank</td>
+                        <td>24975609.7560976</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>Square degrees/survey year details found <a target="_blank" href="http://astro.phys.wvu.edu/GBTdrift350/">here</a>.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.naic.edu/~palfa/newpulsars/" target="_blank">P-ALFA Survey (MOCK)</a> [<a href="#" onclick="$('#cite_pop_44').popup('show');">44</a>,<a href="#" onclick="$('#cite_pop_47').popup('show');">47</a>,<a href="#" onclick="$('#cite_pop_48').popup('show');">48</a>]</td>
+                        <td>2009-present</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>14656488.5496183</td>
+                        <td>16</td>
+                        <td>5016</td>
+                        <td>0</td>
+                        <td>2038</td>
+                        <td>&gt;5000000</td>
+                        <td>16-bit data reduced to 4 for data storage requirements. The ~5045 pointings are for the MOCK spectrometer between 2009-12 in the outer galaxy. Candidates numbers obtained <a href="http://www2.naic.edu/alfa/pulsar/" target="_blank">here</a>.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://arcc.phys.utb.edu/gbncc/" target="_blank">GBNCC (GUPPI)</a> [<a href="#" onclick="$('#cite_pop_38').popup('show');">38</a>,<a href="#" onclick="$('#cite_pop_49').popup('show');">49</a>]</td>
+                        <td>2009-14</td>
+                        <td><span class="flagicon"><img alt="GBT" src="images/GBT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Green Bank</td>
+                        <td>49951219.5121951</td>
+                        <td>?</td>
+                        <td>17352/26532</td>
+                        <td>0</td>
+                        <td>500/3000</td>
+                        <td>&gt;1200000</td>
+                        <td>Dispersion trials and range increased due to Thornton burst discovery, thus two sets of DM values.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://sites.google.com/site/htrusouthdeep/home" target="_blank">Southern HTRU (LOW)</a> [<a href="#" onclick="$('#cite_pop_50').popup('show');">50</a>]</td>
+                        <td>2010-12</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>13593750</td>
+                        <td>8</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>1600000</td>
+                        <td>16GB of data per beam. 1PB data total.</td>
+                    </tr>
+                    <tr>
+                        <td>Southern HTRU (MED) [<a href="#" onclick="$('#cite_pop_50').popup('show');">50</a>,<a href="#" onclick="$('#cite_pop_51').popup('show');">51</a>]</td>
+                        <td>2010-12</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>13593750</td>
+                        <td>8</td>
+                        <td>1436</td>
+                        <td>0</td>
+                        <td>2000</td>
+                        <td>9509600</td>
+                        <td>2 GB of data per beam.</td>
+                    </tr>
+                    <tr>
+                        <td>Southern HTRU (HIGH) [<a href="#" onclick="$('#cite_pop_50').popup('show');">50</a>]</td>
+                        <td>2010-12</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>13593750</td>
+                        <td>8</td>
+                        <td>8000</td>
+                        <td>0</td>
+                        <td>800</td>
+                        <td>44328700</td>
+                        <td>1GB of data per beam.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.naic.edu/~deneva/drift-search/" target="_blank">A0327 (MOCK)</a> [<a href="#" onclick="$('#cite_pop_38').popup('show');">38</a>]</td>
+                        <td>2010</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>8192000</td>
+                        <td>?</td>
+                        <td>6358</td>
+                        <td>0</td>
+                        <td>1000</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>LPPS [<a href="#" onclick="$('#cite_pop_52').popup('show');">52</a>]</td>
+                        <td>2010</td>
+                        <td><span class="flagicon"><img alt="LOFAR" src="images/Lofar_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>LOFAR</td>
+                        <td>854961.832061069</td>
+                        <td>8</td>
+                        <td>3487</td>
+                        <td>0</td>
+                        <td>3000</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>LOTAS [<a href="#" onclick="$('#cite_pop_52').popup('show');">52</a>]</td>
+                        <td>2010-11</td>
+                        <td><span class="flagicon"><img alt="LOFAR" src="images/Lofar_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>LOFAR</td>
+                        <td>3003076.92307692</td>
+                        <td>8</td>
+                        <td>16845/18100</td>
+                        <td>0</td>
+                        <td>1000</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Northern HTRU (LOW) [<a href="#" onclick="$('#cite_pop_53').popup('show');">53</a>,<a href="#" onclick="$('#cite_pop_54').popup('show');">54</a>]</td>
+                        <td>2010-14</td>
+                        <td><span class="flagicon"><img alt="Effelsberg" src="images/Effelsberg_128x128.png" width="32" height="32" class="thumbborder" /></span>Effelsberg</td>
+                        <td>7507782.45742538</td>
+                        <td>8</td>
+                        <td>3240/406</td>
+                        <td>0</td>
+                        <td>978/3000</td>
+                        <td>&gt;80000000</td>
+                        <td>13.4 GB of data per beam, ~38MBs-1. 5PB data total. Quick search pipeline searches 406 trial DM's up to 3000.</td>
+                    </tr>
+                    <tr>
+                        <td>Northern HTRU (MED) [<a href="#" onclick="$('#cite_pop_53').popup('show');">53</a>,<a href="#" onclick="$('#cite_pop_54').popup('show');">54</a>]
+                        </td>
+                        <td>2010-14</td>
+                        <td><span class="flagicon"><img alt="Effelsberg" src="images/Effelsberg_128x128.png" width="32" height="32" class="thumbborder" /></span>Effelsberg</td>
+                        <td>7507782.45742538</td>
+                        <td>8</td>
+                        <td>3240/406</td>
+                        <td>0</td>
+                        <td>978/3000</td>
+                        <td>&gt;80000000</td>
+                        <td>1.6 GB of data per beam. Quick search pipeline searches high DM range up to 3000.</td>
+                    </tr>
+                    <tr>
+                        <td>Northern HTRU (HIGH) [<a href="#" onclick="$('#cite_pop_53').popup('show');">53</a>,<a href="#" onclick="$('#cite_pop_54').popup('show');">54</a>]
+                        </td>
+                        <td>2010-14</td>
+                        <td><span class="flagicon"><img alt="Effelsberg" src="images/Effelsberg_128x128.png" width="32" height="32" class="thumbborder" /></span>Effelsberg</td>
+                        <td>7507782.45742538</td>
+                        <td>8</td>
+                        <td>3240/406</td>
+                        <td>0</td>
+                        <td>978/3000</td>
+                        <td>&gt;80000000</td>
+                        <td>0.8 GB of data per beam. Quick search pipeline searches high DM range up to 3000.</td>
+                    </tr>
+                    <tr>
+                        <td>SPAN512 [<a href="#" onclick="$('#cite_pop_55').popup('show');">55</a>]</td>
+                        <td>2012</td>
+                        <td><span class="flagicon"><img alt="Nancy" src="images/Nancy_128x128.png" width="32" height="32" class="thumbborder" /></span>Nan&ccedil;ay</td>
+                        <td>16000000</td>
+                        <td>4</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>1800</td>
+                        <td>?</td>
+                        <td>50TB data in total.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.naic.edu/~deneva/drift-search/" target="_blank">A0327 (PUPPI)</a> [<a href="#" onclick="$('#cite_pop_38').popup('show');">38</a>]</td>
+                        <td>2014</td>
+                        <td><span class="flagicon"><img alt="Arecibo" src="images/Arecibo_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Arecibo</td>
+                        <td>34341463.4146341</td>
+                        <td>?</td>
+                        <td>6358</td>
+                        <td>0</td>
+                        <td>1000</td>
+                        <td>?</td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td><a href="http://www.astron.nl/lotaas/" target="_blank" >LOTAAS</a> [<a href="#" onclick="$('#cite_pop_56').popup('show');">56</a>,<a href="#" onclick="$('#cite_pop_57').popup('show');">57</a>,<a href="#" onclick="$('#cite_pop_58').popup('show');">58</a>]</td>
+                        <td>2013</td>
+                        <td><span class="flagicon"><img alt="LOFAR" src="images/Lofar_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>LOFAR</td>
+                        <td>5273437.5</td>
+                        <td>8</td>
+                        <td>7000</td>
+                        <td>0</td>
+                        <td>500</td>
+                        <td>39000000</td>
+                        <td>Each 1-hour pointing produces 16 TB of raw data. Candidate numbers obtained via private communication.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://sites.google.com/site/publicsuperb/discoveries" target="_blank">SUPERB</a> [<a href="#" onclick="$('#cite_pop_59').popup('show');">59</a>]</td>
+                        <td>2014</td>
+                        <td><span class="flagicon"><img alt="Parkes" src="images/Parkes_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>Parkes</td>
+                        <td>32000000</td>
+                        <td>8</td>
+                        <td>1448</td>
+                        <td>0</td>
+                        <td>400</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>GMRT High Resolution Southern Sky Survey (MID) [<a href="#" onclick="$('#cite_pop_60').popup('show');">60</a>]</td>
+                        <td>2014</td>
+                        <td><span class="flagicon"><img alt="GMRT" src="images/GMRT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>GMRT</td>
+                        <td>34133333.3333333</td>
+                        <td>?</td>
+                        <td>6000</td>
+                        <td>0.01</td>
+                        <td>500/2000</td>
+                        <td>?</td>
+                        <td>76GB of data per beam.</td>
+                    </tr>
+                    <tr>
+                        <td>GMRT High Resolution Southern Sky Survey (HIGH) [<a href="#" onclick="$('#cite_pop_60').popup('show');">60</a>]</td>
+                        <td>2014</td>
+                        <td><span class="flagicon"><img alt="GMRT" src="images/GMRT_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>GMRT</td>
+                        <td>34133333.3333333</td>
+                        <td>?</td>
+                        <td>6000</td>
+                        <td>0.01</td>
+                        <td>500/2000</td>
+                        <td>?</td>
+                        <td>45GB of data per beam.</td>
+                    </tr>
+                    <tr>
+                        <td>FAST* [<a href="#" onclick="$('#cite_pop_61').popup('show');">61</a>]</td>
+                        <td>2016</td>
+                        <td><span class="flagicon"><img alt="FAST" src="images/FAST_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>FAST</td>
+                        <td>95000000</td>
+                        <td>2</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>Simulation. For the initial 19-beam receiver, the data rate is just under 0.5 GB per second. For 100 beams it is about 2.4 GB per second.</td>
+                    </tr>
+                    <tr>
+                        <td>SKA** (Configuration A 3000 Dishes) [<a href="#" onclick="$('#cite_pop_62').popup('show');">62</a>]</td>
+                        <td>2020-22</td>
+                        <td><span class="flagicon"><img alt="SKA" src="images/SKA_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>SKA</td>
+                        <td>148437500</td>
+                        <td>2</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>SKA** (Configuration B Aperture Array) [<a href="#" onclick="$('#cite_pop_62').popup('show');">62</a>]</td>
+                        <td>2020-22</td>
+                        <td><span class="flagicon"><img alt="SKA" src="images/SKA_128x128.png" width="32" height="32" class="thumbborder" />&#160;</span>SKA</td>
+                        <td>148437500</td>
+                        <td>2</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                </table>
+
+<p>* Projected.</p>
+<p>** Simulation and best guess estimate.</p>
+<h4>Created by <a target="_blank" href="www.scienceguyrob.com">Rob Lyon</a>, last updated May 2015.</h4>    
+            </div>
+            <script type="text/javascript">
+                $('#proctable').dynatable();
+            </script>
+        </div>
+    </div>
+
+    <!-- Popups: here the popups that describe each survey references are built. Each popup is placed within -->
+<!-- a <div></dv> element that is invisible unless the user presses the link to a reference. If you wish -->
+<!-- add a new survey entry, you must add a new popup div here. Simply copy an example div, paste it to  -->
+<!-- the bottom of this list, insert the new survey reference, and update the id and onclick attributes. -->
+<!-- For example their are currently 56 references, so to add a another one copy the div "cite_pop_1"    -->
+<!-- to the bottom, and then replace "cite_pop_1" in the copied text with "cite_pop_57".                 -->
+
+<div id="cite_pop_1" class="well"> <!-- Popups 1 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Hewish:1968:jb,
+author  = {{Hewish}, A. and {Bell}, S.~J. and {Pilkington}, J.~D.~H. and {Scott}, P.~F. and {Collins}, R.~A.},
+title   = {{Observation of a Rapidly Pulsating Radio Source}},
+journal = {Nature},
+year    = {1968},
+volume  = {217},
+issue   = {5130},
+pages   = {709-713},
+doi     = {10.1038/217709a0},
+url     = {http://dx.doi.org/10.1038/217709a0}
+}</code>
+</pre> 
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1038/217709a0');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_1').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+    
+<div id="cite_pop_2" class="well"> <!-- Popups 2 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Large:1968:mi,
+author  = {{Large}, M.~I. and {Vaughan}, A.~E. and {Wielebinski}, R.},
+title   = {{Pulsar Search at the Molonglo Radio Observatory}},
+journal = {Nature},
+year    = {1968},
+volume  = {220},
+pages   = {753-756},
+doi     = {10.1038/220753a0},
+url     = {http://dx.doi.org/10.1038/220753a0}
+}</code>
+</pre> 
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1038/220753a0');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_2').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_3" class="well"> <!-- Popups 3 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Vaughan:1970:lm,
+author  = {{Vaughan}, A.~E. and {Large}, M.~I.},
+title   = {{Five New Pulsars}},
+journal = {Nature},
+year    = {1970},
+volume  = {225},
+issue   = {5228},
+pages   = {167-168},
+doi     = {10.1038/225167a0},
+url     = {http://dx.doi.org/10.1038/225167a0}
+}
+</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1038/225167a0');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_3').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>             
+ 
+<div id="cite_pop_4" class="well"> <!-- Popups 4 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Davies:1970:lm,
+author  = {{Davies}, J.~G. and {Large}, M.~I. and {Pickwick}, A.~C.},
+title   = {{Five New Pulsars}},
+journal = {Nature},
+year    = {1970},
+volume  = {227},
+pages   = {1123-1124},
+doi     = {10.1038/2271123a0},
+url     = {http://dx.doi.org/10.1038/2271123a0}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default"  onclick="window.open('http://dx.doi.org/10.1038/2271123a0');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_4').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_5" class="well"> <!-- Popups 5 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Hulse:1974:jh,
+author  = {{Hulse}, R.~A. and {Taylor}, J.~H.},
+title   = {{A High-Sensitivity Pulsar Survey}},
+journal = {Astrophysical Journal},
+year    = {1974},
+month   = {July},
+volume  = {191},
+pages   = {L59},
+doi     = {10.1086/181548},
+url     = {http://dx.doi.org/10.1086/181548}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default"  onclick="window.open('http://dx.doi.org/10.1086/181548');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_5').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>   
+                    
+<div id="cite_pop_6" class="well"> <!-- Popups 6 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Davies:1977:sj,
+author  = {{Davies}, J.~G. and {Lyne}, A.~G. and {Seiradakis}, J.~H.},
+title   = {{The galactic distribution of pulsars}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+year    = {1977},
+month   = {June},
+volume  = {179},
+pages   = {635-650},
+doi     = {10.1093/mnras/179.4.635},
+url     = {http://dx.doi.org/10.1093/mnras/179.4.635}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default"  onclick="window.open('http://dx.doi.org/10.1093/mnras/179.4.635');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_6').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_7" class="well"> <!-- Popups 7 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Manchester:1978:rl,
+author  = {{Manchester}, R.~N. and {Lyne}, A.~G. and {Taylor}, J.~H. and {Durdin}, J.~M. and {Large}, M.~I. and {Little}, A.~G.},
+title   = {{The second Molonglo pulsar survey - discovery of 155 pulsars.}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+year    = {1978},
+month   = {November},
+volume  = {185},
+pages   = {409-421},
+doi     = {10.1093/mnras/185.2.409},
+url     = {http://dx.doi.org/10.1093/mnras/185.2.409}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1093/mnras/185.2.409');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_7').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+
+<div id="cite_pop_8" class="well"> <!-- Popups 8 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Damashek:1978:mt,
+author  = {{Damashek}, M. and {Taylor}, J.~H. and {Hulse}, R.~A.},
+title   = {{Parameters of 17 newly discovered pulsars in the northern sky}},
+journal = {Astrophysical Journal},
+year    = {1978},
+month   = {October},
+volume  = {225},
+pages   = {L31-L33},
+doi     = {10.1086/182786},
+url     = {http://dx.doi.org/10.1086/182786}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/182786');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_8').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_9" class="well">  <!-- Popups 9 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Damashek:1982:bp,
+author  = {{Damashek}, M. and {Backus}, P.~R. and {Taylor}, J.~H. and {Burkhardt}, R.~K.},
+title   = {{Northern Hemisphere pulsar survey - A third radio pulsar in a binary system}},
+journal = {Astrophysical Journal},
+year    = {1982},
+month   = {feb},
+volume  = {253},
+pages   = {L57-L60},
+doi     = {10.1086/183736},
+url     = {http://dx.doi.org/10.1086/183736}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/183736');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_9').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+<div id="cite_pop_10" class="well"> <!-- Popups 10 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Dewey:1985:wm,
+author  = {{Dewey}, R.~J. and {Taylor}, J.~H. and {Weisberg}, J.~M. and {Stokes}, G.~H.},
+title   = {{A search for low-luminosity pulsars}},
+journal = {Astrophysical Journal},
+year    = {1985},
+month   = {July},
+volume  = {294},
+pages   = {L25-L29},
+doi     = {10.1086/184502},
+url     = {http://dx.doi.org/10.1086/184502}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/184502');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_10').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_11" class="well"> <!-- Popups 11 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Stokes:1985:jh,
+author  = {{Stokes}, G.~H. and {Taylor}, J.~H. and {Weisberg}, J.~M. and {Dewey}, R.~J.},
+title   = {{A survey for short-period pulsars}},
+journal = {Nature},
+year    = {1985},
+month   = {October},
+volume  = {317},
+number  = {6040},
+pages   = {787-788},
+doi     = {10.1038/317787a0},
+url     = {http://dx.doi.org/10.1038/317787a0}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1038/317787a0');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_11').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+                    
+<div id="cite_pop_12" class="well">  <!-- Popups 12 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Clifton:1986:tr,
+author  = {{Clifton}, T.~R. and {Lyne}, A.~G.},
+title   = {{High-radio-frequency survey for young and millisecond pulsars}},
+journal = {Nature},
+year    = {1986},
+volume  = {320},
+pages   = {43-45},
+doi     = {10.1038/320043a0},
+url     = {http://dx.doi.org/10.1038/320043a0}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1038/320043a0');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_12').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_13" class="well">  <!-- Popups 13 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Stokes:1986:sd,
+author  = {{Stokes}, G.~H. and {Segelstein}, D.~J. and {Taylor}, J.~H. and {Dewey}, R.~J.},
+title   = {{Results of two surveys for fast pulsars}},
+journal = {Astrophysical Journal},
+year    = {1986},
+month   = {December},
+volume  = {311},
+pages   = {694-700},
+doi     = {10.1086/164808},
+url     = {http://dx.doi.org/10.1086/164808}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/164808');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_13').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+
+<div id="cite_pop_14" class="well">  <!-- Popups 14 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Damico:1988:mr,
+author  = {{D'Amico}, N. and {Manchester}, R.~N. and {Durdin}, J.~M. and {Stokes}, G.~H. and {Stinebring}, D.~R. and {Taylor}, J.~H. and {Brissenden}, R.~J.~V.}, 
+title   = {{A survey for millisecond pulsars at Molonglo}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+volume  = {234}, 
+number  = {2}, 
+pages   = {437-443}, 
+year    = {1988}, 
+doi     = {10.1093/mnras/234.2.437}, 
+URL     = {http://dx.doi.org/10.1093/mnras/234.2.437}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1093/mnras/234.2.437');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_14').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+    
+<div id="cite_pop_15" class="well">  <!-- Popups 15 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Biggs:1992:ln,
+author  = {{Biggs}, J.~D. and {Lyne}, A.~G.}, 
+title   = {{The Jodrell bank 'C' Pulsar Survey: a survey of the northern galactic plane for rapidly rotating pulsars}},
+journal = {Monthly Notices of the Royal Astronomical Society} 
+volume  = {254}, 
+number  = {2}, 
+pages   = {257-263}, 
+year    = {1992}, 
+doi     = {10.1093/mnras/254.2.257}, 
+url     = {http://dx.doi.org/10.1093/mnras/254.2.257}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1093/mnras/254.2.257');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_15').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>   
+    
+<div id="cite_pop_16" class="well"> <!-- Popups 16 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Manchester:1990:da,
+author  = {{Manchester}, R.~N. and {Lyne}, A.~G. and {D'Amico}, N. and {Johnston}, S. and {Lim}, J. and {Kniffen}, D.~A.},
+title   = {{A 5.75-millisecond pulsar in the globular cluster 47 Tucanae}},
+journal = {Nature},
+volume  = {345},
+pages   = {598-600},
+doi     = {10.1038/345598a0},
+url     = {http://dx.doi.org/10.1038/345598a0}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1038/345598a0');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_16').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+                    
+<div id="cite_pop_17" class="well">  <!-- Popups 17 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Manchester:1990:ra,
+author  = {{Manchester}, R.~N. and {Lyne}, A.~G. and {Robinson}, C. and {D'Amico}, N and {Bailes}, M. and {Lim}, J.},
+title   = {{Discovery of ten millisecond pulsars in the globular cluster 47 Tucanae}},
+journal = {Nature},
+volume  = {352},
+pages   = {219-221},
+doi     = {10.1038/352219a0},
+url     = {http://dx.doi.org/10.1038/352219a0}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1038/352219a0');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_17').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_18" class="well">  <!-- Popups 18 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Nice:1995:fa,
+author  = {{Nice}, D.~J. and {Fruchter}, A.~S. and {Taylor}, J.~H.},
+title   = {{A Search for Fast Pulsars along the Galactic Plane}},
+journal = {Astrophysical Journal},
+year    = {1995},
+month   = {August},
+volume  = {449},
+pages   = {156},
+doi     = {10.1086/176041},
+url     = {http://dx.doi.org/10.1086/176041}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/176041');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_18').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>               
+                    
+ <div id="cite_pop_19" class="well"> <!-- Popups 19 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Johnston:1992:lr,
+author  = {{Johnston}, S. and {Lyne}, A.~G. and {Manchester}, R.~N. and {Kniffen}, D.~A. and {D'Amico}, N. and {Lim}, J. and {Ashworth}, M.},
+title   = {{A high-frequency survey of the southern Galactic plane for pulsars}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+year    = {1992},
+month   = {April},
+volume  = {255},
+pages   = {401-411},
+doi     = {10.1093/mnras/255.3.401},
+url     = {http://dx.doi.org/10.1093/mnras/255.3.401}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1093/mnras/255.3.401');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_19').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+                    
+<div id="cite_pop_20" class="well">  <!-- Popups 20 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Navarro:2003:ab,
+author  = {{Navarro}, J. and {Anderson}, S.~B. and {Freire}, P.~C.},
+title   = {{The Arecibo 430 MHz Intermediate Galactic Latitude Survey: Discovery of Nine Radio Pulsars}},
+journal = {The Astrophysical Journal},
+volume  = {594},
+number  = {2},
+pages   = {943},
+year    = {2003},
+doi     = {10.1086/377153},
+url     = {http://dx.doi.org/10.1086/377153}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/377153');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_20').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_21" class="well">  <!-- Popups 21 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Foster:1995:sc,
+author  = {{Foster}, R.~S. and {Cadwell}, B.~J. and {Wolszczan}, A. and {Anderson}, S.~B.},
+title   = {{A High Galactic Latitude Pulsar Survey of the Arecibo Sky}},
+journal = {Astrophysical Journal},
+year    = {1995},
+month   = {December},
+volume  = {454},
+pages   = {826},
+doi     = {10.1086/176535},
+url     = {http://dx.doi.org/10.1086/176535}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/176535');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_21').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>                    
+                    
+<div id="cite_pop_22" class="well"> <!-- Popups 22 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Nice:1993:jh,
+author  = {{Nice}, D.~J. and {Taylor}, J.~H. and {Fruchter}, A.~S.},
+title   = {{Two newly discovered millisecond pulsars}},
+journal = {Astrophysical Journal},
+year    = {1993},
+month   = {January},
+volume  = {402},
+pages   = {L49-L52},
+doi     = {10.1086/186697},
+url     = {http://dx.doi.org/10.1086/186697}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/186697');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_22').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+                    
+<div id="cite_pop_23" class="well">  <!-- Popups 23 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Camilo:1993:nt,
+author  = {{Camilo}, F. and {Nice}, D.~J. and {Taylor}, J.~H.},
+title   = {{Discovery of two fast-rotating pulsars}},
+journal = {Astrophysical Journal},
+year    = {1993},
+month   = {July},
+volume  = {412},
+pages   = {L37-L40},
+doi     = {10.1086/186934},
+url     = {http://dx.doi.org/10.1086/186934}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/186934');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_23').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_24" class="well">  <!-- Popups 24 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Manchester:1996:ti,
+author  = {{Manchester}, R.~N. and {Lyne}, A.~G. and {D'Amico}, N. and {Bailes}, M. and {Johnston}, S. and {Lorimer}, D.~R. and {Harrison}, P.~A. and {Nicastro}, L. and {Bell}, J.~F.},
+title   = {{The Parkes Southern Pulsar Survey. I. Observing and data analysis systems and initial results}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+year    = {1996},
+volume  = {279},
+pages   = {1235-1250},
+doi     = {10.1093/mnras/279.4.1235},
+url     = {http://dx.doi.org/10.1093/mnras/279.4.1235}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1093/mnras/279.4.1235');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_24').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+    
+<div id="cite_pop_25" class="well"> <!-- Popups 25 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Shrauner:1998:jt,
+author  = {{Shrauner}, J.~A. and {Taylor}, J.~H. and {Woan}, G.},
+title   = {{The Second Cambridge Pulsar Survey At 81.5 MHz}},
+journal = {The Astrophysical Journal},
+year={1998},
+volume  = {509},
+number  = {2},
+doi     = {10.1086/306510},
+url     = {http://dx.doi.org/10.1086/306510}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/306510');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_25').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+    
+<div id="cite_pop_26" class="well"> <!-- Popups 26 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Nicastro:1995:mb,
+author  = {{Nicastro}, L. and {Lyne}, A.~G. and {Lorimer}, D.~R. and {Harrison}, P.~A. and {Bailes}, M. and {Skidmore}, B.~D.}, 
+title   = {{PSR:J1012+5307:a 5.26-ms pulsar in a 14.5-h binary system}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+year    = {1995}, 
+volume  = {273}, 
+number  = {1}, 
+pages   = {L68-L70}, 
+doi     = {10.1093/mnras/273.1.L68},
+url     = {http://dx.doi.org/10.1093/mnras/273.1.L68}  
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1093/mnras/273.1.L68');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_26').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+    
+<div id="cite_pop_27" class="well"> <!-- Popups 27 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Sayer:1997:rw,
+author  = {{Sayer},R.~W. and {Nice}, D.~J. and {Taylor}, J.~H.},
+title   = {{The Green Bank Northern Sky Survey for Fast Pulsars}},
+journal = {The Astrophysical Journal},
+volume  = {474},
+number  = {1},
+pages   = {426},
+year    = {1997},
+doi     = {10.1086/303446},
+url     = {http://dx.doi.org/10.1086/303446}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/303446');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_27').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+                    
+<div id="cite_pop_28" class="well">  <!-- Popups 28 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Manchester:2001:fo,
+author  = {{Manchester}, R.~N. and {Lyne}, A.~G. and {Camilo}, F. and {Bell}, J.~F. and {Kaspi}, V.~M. and {D'Amico}, N. and {McKay}, N.~P.~F. and {Crawford}, F. and {Stairs}, I.~H. and {Possenti}, A. and {Kramer}, M. and {Sheppard}, D.~C.},
+title   = {{The Parkes multi-beam pulsar survey - I. Observing and data analysis systems, discovery and timing of 100 pulsars}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+year    = {2001},
+volume  = {328},
+number  = {1},
+pages   = {17-35},
+doi     = {10.1046/j.1365-8711.2001.04751.x},
+url     = {http://dx.doi.org/10.1046/j.1365-8711.2001.04751.x}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1046/j.1365-8711.2001.04751.x');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_28').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_29" class="well">  <!-- Popups 29 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Lorimer:2015:pe,
+author  = {{Lorimer}, D.~R. and {Esposito}, P. and {Manchester}, R.~N. and {Possenti}, A. and {Lyne} A.~G. and {McLaughlin} M.~A. and {Kramer} M. and {Hobbs} G. and {Stairs} I.~H. and  {Burgay} M. and {Eatough} R.~P. and {Keith}, M.~J. and {Faulkner}, A.~J. and {D'Amico} N. and {Camilo} F. and {Corongiu} A. and {Crawford} F.},
+title   = {{The Parkes multibeam pulsar survey: VII. Timing of four millisecond pulsars and the underlying spin period distribution of the Galactic millisecond pulsar population}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+year    = {2015},
+url     = {http://arxiv.org/abs/1501.05516}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://arxiv.org/abs/1501.05516');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_29').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+   
+<div id="cite_pop_30" class="well"> <!-- Popups 30 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@misc{Damico:1999:nd,
+author  = {{D'Amico}, N.},
+title   = {{The Bologna submillisecond pulsar survey}},
+journal = {Pulsar Astronomy – 2000 and Beyond ASP Conference Series  Vol. 3},
+year    = {1999},
+url     = {http://arxiv.org/pdf/astro-ph/9911207v1.pdf}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://arxiv.org/pdf/astro-ph/9911207v1.pdf');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_30').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+    
+<div id="cite_pop_31" class="well"> <!-- Popups 31 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Edwards:2001:tm,
+author  = {{Edwards}, R.~T. and {Bailes}, M. and van {Straten}, W. and {Britton}, M.~C.},
+title   = {{The Swinburne intermediate-latitude pulsar survey}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+year    = {2001},
+volume  = {326},
+number  = {1},
+pages   = {358-374},
+doi     = {10.1046/j.1365-8711.2001.04637.x},
+url     = {http://dx.doi.org/10.1046/j.1365-8711.2001.04637.x}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1046/j.1365-8711.2001.04637.x');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_31').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+                    
+<div id="cite_pop_32" class="well">  <!-- Popups 32 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Burgay:2006:jd,
+author  = {{Burgay}, M. and {Joshi}, B.~C. and {D'Amico}, N. and {Possenti}, A. and {Lyne}, A.~G. and {Manchester}, R.~N. and {McLaughlin}, M.~A. and {Kramer}, M. and {Camilo}, F. and {Freire}, P.~C.~C.},
+title   = {{The Parkes High-Latitude pulsar survey}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+year    = {2006},
+month   = {May},
+volume  = {368},
+pages   = {283-292},
+doi     = {10.1111/j.1365-2966.2006.10100.x},
+url     = {http://dx.doi.org/10.1111/j.1365-2966.2006.10100.x}
+}
+</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1111/j.1365-2966.2006.10100.x');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_32').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_33" class="well">  <!-- Popups 33 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Manchester:2006:kc,
+author  = {{Manchester}, R.~N. and {Fan}, G. and {Lyne}, A.~G. and {Kaspi}, V.~M. and {Crawford}, F.},
+title   = {{Discovery of 14 Radio Pulsars in a Survey of the Magellanic Clouds}},
+journal = {The Astrophysical Journal},
+volume  = {649},
+number  = {1},
+pages   = {235},
+year    = {2006},
+doi     = {10.1086/505461},
+url     = {http://dx.doi.org/10.1086/505461}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/505461');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_33').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+<div id="cite_pop_34" class="well"> <!-- Popups 34 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>author  = {{Hessels}, J.~W.~T. and {Ransom}, S.~M. and {Stairs}, I.~H. and {Kaspi}, V.~M. and {Freire}, P.~C.~C.},
+title   = {{A 1.4 GHz Arecibo Survey for Pulsars in Globular Clusters}},
+journal = {Astrophysical Journal},
+year    = {2007},
+month   = {November},
+volume  = {670},
+pages   = {363-378},
+doi     = {10.1086/521780},
+url     = {http://dx.doi.org/10.1086/521780}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/521780');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_34').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+                    
+<div id="cite_pop_35" class="well">  <!-- Popups 35 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Jacoby:2009:ba,
+author  = {{Jacoby}, B.~A. and {Bailes}, M. and {Ord}, S.~M. and {Edwards}, R.~T. and {Kulkarni}, S.~R.},
+title   = {{A Large-Area Survey for Radio Pulsars at High Galactic Latitudes}},
+journal = {The Astrophysical Journal},
+volume  = {699},
+number  = {2},
+year    = {2009},
+pages   = {2009-2016},
+doi     = {10.1088/0004-637X/699/2/2009},
+url     = {http://dx.doi.org/10.1088/0004-637X/699/2/2009}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1088/0004-637X/699/2/2009');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_35').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_36" class="well">  <!-- Popups 36 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Crawford:2006:fr,
+author  = {{Crawford}, F. and {Roberts}, M.~S.~E. and {Hessels}, J.~W.~T. and {Ransom}, S.~M. and {Livingstone}, M. and {Tam}, C.~R. and {Kaspi}, V.~M.},
+title   = {{A Survey of 56 Midlatitude EGRET Error Boxes for Radio Pulsars}},
+journal = {Astrophysical Journal},
+year    = {2006},
+month   = {December},
+volume  = {652},
+pages   = {1499-1507},
+doi     = {10.1086/508403},
+url     = {http://dx.doi.org/10.1086/508403}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/508403');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_36').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+
+<div id="cite_pop_37" class="well"> <!-- Popups 37 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Champion:2005:dj,
+author  = {{Champion}, D.~J. and {McLaughlin}, M.~A. and {Lorimer}, D.~R.},
+title   = {{A survey for pulsars in EGRET error boxes}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+volume  = {364},
+number  = {3},
+pages   = {1011-1014},
+year    = {2005},
+doi     = {10.1111/j.1365-2966.2005.09660.x},
+url     = {http://dx.doi.org/10.1111/j.1365-2966.2005.09660.x}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1111/j.1365-2966.2005.09660.x');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_37').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+                    
+<div id="cite_pop_38" class="well">  <!-- Popups 38 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Deneva:2013:ma,
+author  = {{Deneva}, J.~S. and {Stovall}, K. and {McLaughlin}, M.~A. and {Bates}, S.~D. and {Freire}, P.~C.~C. and {Martinez}, J.~G. and {Jenet}, F. and {Bagchi}, M.},
+title   = {{Goals, Strategies and First Discoveries of AO327, the Arecibo All-sky 327 MHz Drift Pulsar Survey}},
+journal = {The Astrophysical Journal},
+volume  = {775},
+number  = {1},
+pages   = {51},
+year    = {2013},
+doi     = {10.1088/0004-637X/775/1/51},
+url     = {http://dx.doi.org/10.1088/0004-637X/775/1/51}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1088/0004-637X/775/1/51');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_38').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_39" class="well">  <!-- Popups 39 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Burgay:2013:hk,
+author  = {{Burgay}, M. and {Keith}, M.~J. and {Lorimer}, D.~R. and {Hassall}, T.~E. and {Lyne}, A.~G. and {Camilo}, F. and {D'Amico}, N. and {Hobbs}, G.~B. and {Kramer}, M. and {Manchester}, R.~N. and {McLaughlin}, M.~A. and {Possenti}, A. and {Stairs}, I.~H. and {Stappers}, B.~W.}, 
+title   = {{The Perseus Arm Pulsar Survey}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+volume  = {429}, 
+number  = {1}, 
+pages   = {579-588}, 
+year    = {2013}, 
+doi     = {10.1093/mnras/sts359},
+url     = {http://dx.doi.org/10.1093/mnras/sts359}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1093/mnras/sts359');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_39').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+<div id="cite_pop_40" class="well"> <!-- Popups 40 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@inproceedings{Herrera:2007:gj,
+author    = {{Rubio-Herrera}, E. and {Braun}, R. and {Janssen}, G. and {van Leeuwen}, J. and {Stappers}, B.~W.},
+title     = {The 8gr8 Cygnus survey for new pulsars and RRATs},
+booktitle = {WE-Heraeus Seminar on Neutron Stars and Pulsars 40 years after the Discovery},
+year      = {2007},
+eprint    = {astro-ph/0701183},
+editor    = {{Becker}, W. and {Huang}, H.~H.},
+month     = {January},
+adsurl    = {http://adsabs.harvard.edu/abs/2007whsn.conf...56R},
+adsnote   = {Provided by the SAO/NASA Astrophysics Data System}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://adsabs.harvard.edu/abs/2007whsn.conf...56R');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_40').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+                    
+<div id="cite_pop_41" class="well">  <!-- Popups 41 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Janssen:2009:gh,
+author  = {{Janssen}, G.~H. and {Stappers}, B.~W. and {Braun}, R. and {van Straten}, W. and {Edwards}, R.~T. and {Rubio-Herrera}, E. and {van Leeuwen}, J. and {Weltevrede}, P.},
+title   = {Discovery and timing of the first 8gr8 Cygnus survey pulsars},
+journal = {A \&amp; A},
+year    = {2009},
+volume  = {498},
+number  = {1},
+pages   = {223-231},
+doi     = {10.1051/0004-6361/200811482},
+url     = {http://dx.doi.org/10.1051/0004-6361/200811482}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1051/0004-6361/200811482');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_41').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_42" class="well">  <!-- Popups 42 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Lorimer:2013:mm,
+author  = {{Lorimer}, D.~R. and {Camilo}, F. and {McLaughlin}, M.~A.}, 
+title   = {{Timing of pulsars found in a deep Parkes multibeam survey}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+volume  = {434}, 
+number  = {1}, 
+pages   = {347-351}, 
+year    = {2013}, 
+doi     = {10.1093/mnras/stt1023},
+url     = {http://dx.doi.org/10.1093/mnras/stt1023}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1093/mnras/stt1023');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_42').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+<div id="cite_pop_43" class="well"> <!-- Popups 43 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Cordes:2006:kh,
+author  = {{Cordes}, J.~M. and {Freire}, P.~C.~C. and {Lorimer}, D.~R. and {Camilo}, F. and {Champion}, D.~J. and {Nice}, D.~J. and {Ramachandran}, R. and {Hessels}, J.~W.~T. and {Vlemmings}, W. and van {Leeuwen}, J. and {Ransom}, S.~M. and {Bhat}, N.~D.~R. and {Arzoumanian}, Z. and {McLaughlin}, M.~A. and {Kaspi}, V.~M. and {Kasian}, L. and {Deneva}, J.~S. and {Reid}, B. and {Chatterjee}, S. and {Han}, J.~L. and {Backer}, D.~C. and {Stairs}, I.~H. and {Deshpande}, A.~A. and {Faucher Giguere}, C.~A.},
+title   = {{Arecibo Pulsar Survey Using ALFA. I. Survey Strategy and First Discoveries}},
+journal = {The Astrophysical Journal},
+year    = {2006},
+volume  = {637},
+number  = {1},
+pages   = {446-455},
+doi     = {10.1086/498335},
+url     = {http://dx.doi.org/10.1086/498335}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1086/498335');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_43').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+                    
+<div id="cite_pop_44" class="well">  <!-- Popups 44 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Deneva:2009:ac,
+author  = {{Deneva}, J.~S. and {Cordes}, J.~M. and {McLaughlin}, M.~A. and {Nice}, D.~J. and {Lorimer}, D.~R. and {Crawford}, F. and {Bhat}, N.~D.~R. and {Camilo}, F. and {Champion}, D.~J. and {Freire}, P.~C.~C. and {Edel}, S. and {Kondratiev}, V.~I. and {Hessels}, J.~W.~T. and {Jenet}, F.~A. and {Kasian}, L. and {Kaspi}, V.~M. and {Kramer}, M. and {Lazarus}, P. and {Ransom}, S.~M. and {Stairs}, I.~H. and {Stappers}, B.~W. and {van Leeuwen}, J. and {Brazier}, A. and {Venkataraman}, A. and {Zollweg}, J.~A. and {Bogdanov}, S.},
+title   = {{Arecibo Pulsar Survey Using ALFA: Probing Radio Pulsar Intermittency And Transients}},
+journal = {Astrophysical Journal},
+year    = {2009},
+month   = {October},
+volume  = {703},
+pages   = {2259-2274},
+doi     = {10.1088/0004-637X/703/2/2259},
+url     = {http://dx.doi.org/10.1088/0004-637X/703/2/2259}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1088/0004-637X/703/2/2259');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_44').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_45" class="well">  <!-- Popups 45 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Bates:2011:sj,
+author  = {{Bates}, S.~D. and {Johnston}, S. and {Lorimer}, D.~R. and {Kramer}, M. and {Possenti}, A. and {Burgay}, M. and {Stappers}, B. and {Keith}, M.~J. and {Lyne}, A. and {Bailes}, M. and {McLaughlin}, M.~A. and {O'Brien}, J.~T. and {Hobbs}, G.}, 
+title   = {{A 6.5-GHz multibeam pulsar survey}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+volume  = {411}, 
+number  = {3}, 
+pages   = {1575-1584}, 
+year    = {2011}, 
+doi     = {10.1111/j.1365-2966.2010.17790.x},
+url     = {http://dx.doi.org/10.1111/j.1365-2966.2010.17790.x}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1111/j.1365-2966.2010.17790.x');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_45').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+<div id="cite_pop_46" class="well"> <!-- Popups 46 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Boyles:2013:rl,
+author  = {{Boyles}, J. and {Lynch}, R.~S. and {Ransom}, S.~M. and {Stairs}, I.~H. and {Lorimer}, D.~R. and {McLaughlin}, M.~A. and {Hessels}, J.~W.~T. and {Kaspi}, V.~M. and {Kondratiev}, V.~I. and {Archibald}, A. and {Berndsen}, A. and {Cardoso}, R.~F. and {Cherry}, A. and {Epstein}, C.~R. and {Karako-Argaman}, C. and {McPhee}, C.~A. and {Pennucci}, T. and {Roberts}, M.~S.~E. and {Stovall}, K. and {van Leeuwen}, J.},
+title   = {{The Green Bank Telescope 350 MHz Drift-scan survey. I. Survey Observations and the Discovery of 13 Pulsars}},
+journal = {The Astrophysical Journal},
+volume  = {763},
+number  = {2},
+pages   = {80},
+year    = {2013},
+doi     = {10.1088/0004-637X/763/2/80},
+url     = {http://dx.doi.org/10.1088/0004-637X/763/2/80}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1088/0004-637X/763/2/80');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_46').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+                    
+<div id="cite_pop_47" class="well">  <!-- Popups 47 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Spitler:2014:jm,
+author  = {{Spitler}, L.~G. and {Cordes}, J.~M. and {Hessels}, J.~W.~T. and {Lorimer}, D.~R. and {McLaughlin}, M.~A. and {Chatterjee}, S. and {Crawford}, F. and {Deneva}, J.~S. and {Kaspi}, V.~M. and {Wharton}, R.~S. and {Allen}, B. and {Bogdanov}, S. and {Brazier}, A. and {Camilo}, F. and {Freire}, P.~C.~C. and {Jenet}, F.~A. and {Karako-Argaman}, C. and {Knispel}, B. and {Lazarus}, P. and {Lee}, K.~J. and {van Leeuwen}, J. and {Lynch}, R. and {Ransom}, S.~M. and {Scholz}, P. and {Siemens}, X. and {Stairs}, I.~H. and {Stovall}, K. and {Swiggum}, J.~K. and {Venkataraman}, A. and {Zhu}, W.~W. and {Aulbert}, C. and {Fehrmann}, H.},
+title   = {{Fast Radio Burst Discovered in the Arecibo Pulsar ALFA Survey}},
+journal = {The Astrophysical Journal},
+volume  = {790},
+number  = {2},
+pages   = {101},
+year    = {2014},
+doi     = {10.1088/0004-637X/790/2/101},
+url     = {http://dx.doi.org/10.1088/0004-637X/790/2/101}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1088/0004-637X/790/2/101');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_47').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_48" class="well">  <!-- Popups 48 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@misc{Lazarus:2012:palfa,
+author  = {Lazarus, P.},
+title   = {{The PALFA Survey: Going to great depths to find radio pulsars}},
+journal = {IAU Symposium 291, August 20th, 2012},
+url     = {http://www.pulsarastronomy.net/IAUS291/download/Oral/IAUS291_LazarusP.pdf}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://www.pulsarastronomy.net/IAUS291/download/Oral/IAUS291_LazarusP.pdf');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_48').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+<div id="cite_pop_49" class="well"> <!-- Popups 49 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Stovall:2014:sr,
+author  = {{Stovall}, K. and {Lynch}, R.~S. and {Ransom}, S.~M. and {Archibald}, A.~M. and {Banaszak}, S. and {Biwer}, C.~M. and {Boyles}, J. and {Dartez}, L.~P. and {Day}, D. and {Ford}, A.~J. and {Flanigan}, J. and {Garcia}, A. and {Hessels}, J.~W.~T. and {Hinojosa}, J. and {Jenet}, F.~A. and {Kaplan}. D.~L. and {Karako-Argaman}, C. and {Kaspi}, V.~M. and {Kondratiev}, V.~I. and {Leake}, S. and {Lorimer}, D.~R. and {Lunsford}, G. and {Martinez}, J.~G. and {Mata}, A. and {McLaughlin}, M.~A. and {Roberts}, M.~S.~E. and {Rohr}, M.~D. and {Siemens}, X. and {Stairs}, I.~H. and {van Leeuwen}, J. and {Walker}, A.~N. and {Wells}, B.~L.},
+title   = {{The Green Bank Northern Celestial Cap Pulsar Survey. I. Survey Description, Data Analysis, and Initial Results}},
+journal = {The Astrophysical Journal},
+volume  = {791},
+number  = {1},
+pages   = {67},
+year    = {2014},
+doi     = {10.1088/0004-637X/791/1/67},
+url     = {http://dx.doi.org/10.1088/0004-637X/791/1/67}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1088/0004-637X/791/1/67');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_49').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+                    
+<div id="cite_pop_50" class="well">  <!-- Popups 50 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Keith:2010:bl,
+author  = {{Keith}, M.~J. and {Jameson}, A. and {van Straten}, W. and {Bailes}, M. and {Johnston}, S. and {Kramer}, M. and {Possenti}, A. and {Bates}, S.~D. and {Bhat}, N.~D.~R. and {Burgay}, M. and {Burke-Spolaor}, S. and {D'Amico}, N. and {Levin}, L. and {McMahon}, P.~L. and {Milia}, S. and {Stappers}, B.~W.},
+title   = {{The High Time Resolution Universe Pulsar Survey - I. System Configuration and Initial Discoveries}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+year    = {2010},
+volume  = {409},
+number  = {2},
+pages   = {619-627},
+doi     = {10.1111/j.1365-2966.2010.17325.x},
+url     = {http://dx.doi.org/10.1111/j.1365-2966.2010.17325.x}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1111/j.1365-2966.2010.17325.x');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_50').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+
+<div id="cite_pop_51" class="well">  <!-- Popups 51 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@phdthesis{ThorntonPhD:1,
+author  = {Thornton D.},
+title   = {The High Time Resolution Radio Sky},
+school  = {University of Manchester, Jodrell Bank Centre for Astrophysics School of Physics and Astronomy},
+year    = {2013},
+url     = {https://www.escholar.manchester.ac.uk/uk-ac-man-scw:212510}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('https://www.escholar.manchester.ac.uk/uk-ac-man-scw:212510');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_51').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_52" class="well">  <!-- Popups 52 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Coenen:2014:tv,
+author  = {{Coenen}, T. and {van Leeuwen}, J. and {Hessels}, J.~W.~T. and {Stappers}, B.~W. and {Kondratiev}, V.~I. and {Alexov}, A. and {Breton}, R.~P. and {Bilous}, A. and {Cooper}, S. and {Falcke}, H. and {Fallows}, R.~A. and {Gajjar}, V. and {Grie&#223;meier}, J.~M. and {Hassall}, T.~E. and {Karastergiou}, A. and {Keane}, E.~F. and {Kramer}, M. and {Kuniyoshi}, M. and {Noutsos}, A. and {Oslowski}, S. and {Pilia}, M. and {Serylak}, M. and {Schrijvers}, C. and {Sobey}, C. and {ter Veen}, S. and {Verbiest}, J. and {Weltevrede}, P. and {Wijnholds}, S. and {Zagkouris}, K. and {van Amesfoort}, A.~S. and {Anderson}, J. and {Asgekar}, A. and {Avruch}, I.~M. and {Bell}, M.~E. and {Bentum}, M.~J. and {Bernardi}, G. and {Best}, P. and {Bonafede}, A. and {Breitling}, F. and {Broderick}, J. and {Br&#252;ggen}, M. and {Butcher}, H.~R. and {Ciardi}, B. and {Corstanje}, A. and {Deller}, A. and {Duscha}, S. and {Eisl&#246;ffel}, J. and {Fender}, R. and {Ferrari}, C. and {Frieswijk}, W. and {Garrett}, M.~A. and {de Gasperin}, F. and {de Geus}, E. and {Gunst}, A.~W. and {Hamaker}, J.~P. and {Heald}, G. and {Hoeft}, M. and {van der Horst}, A. and {Juette}, E. and {Kuper}, G. and {Law}, C. and {Mann}, G. and {McFadden}, R. and {McKay-Bukowski}, D. and {McKean}, J.~P. and {Munk}, H. and {Orru}, E. and {Paas}, H. and {Pandey-Pommier}, M. and {Polatidis}, A.~G. and {Reich}, W. and {Renting}, A. and {Rottgering}, H. and {Rowlinson}, A. and {Scaife}, A.~M.~M. and {Schwarz}, D. and {Sluman}, J. and {Smirnov}, O. and {Swinbank}, J. and {Tagger}, M. and {Tang}, Y. and {Tasse}, C. and {Thoudam}, S. and {Toribio}, C. and {Vermeulen}, R. and {Vocks}, C. and {van Weeren}, R.~J. and {Wucknitz}, O. and {Zarka}, P. and {Zensus}, A.},
+title   = {{The LOFAR Pilot Surveys for Pulsars and Fast Radio Transients}},
+journal = {A \&amp; A},
+volume  = {570},
+number  = {A60},
+year    = {2014},
+doi     = {10.1051/0004-6361/201424495},
+url     = {http://dx.doi.org/10.1051/0004-6361/201424495}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1051/0004-6361/201424495');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_52').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+<div id="cite_pop_53" class="well"> <!-- Popups 53 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Barr:2013:dj,
+author  = {{Barr}, E.~D. and {Champion}, D.~J. and {Kramer}, M. and {Eatough}, R.~P. and {Freire}, P.~C.~C. and {Karuppusamy}, R. and {Lee}, K.~J. and {Verbiest}, J.~P.~W. and {Bassa}, C.~G. and {Lyne}, A.~G. and {Stappers}, B. and {Lorimer}, D.~R. and {Klein}, B.}, 
+title   = {{The Northern High Time Resolution Universe pulsar survey I. Setup and initial discoveries}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+volume  = {435}, 
+number  = {3}, 
+pages   = {2234-2245}, 
+year    = {2013}, 
+doi     = {10.1093/mnras/stt1440},
+url     = {http://dx.doi.org/10.1093/mnras/stt1440}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1093/mnras/stt1440');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_53').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+                    
+<div id="cite_pop_54" class="well">  <!-- Popups 54 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@inproceedings{Ng:2013:cn,
+author    = {{Cherry}, N.},
+title     = {{Conducting the deepest all-sky pulsar survey ever: the all-sky High Time Resolution Universe survey}},
+booktitle = {Neutron Stars and Pulsars: Challenges and Opportunities after 80 years},
+series    = {Proceedings of the International Astronomical Union},
+volume    = {8},
+issue     = {Symposium S291},
+month     = {August},
+year      = {2012},
+pages     = {53-56},
+doi       = {10.1017/S1743921312023137},
+url       = {http://dx.doi.org/10.1017/S1743921312023137}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1017/S1743921312023137');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_54').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+    
+<div id="cite_pop_55" class="well">  <!-- Popups 55 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@misc{Desvignes:2012:span,
+author  = {{Desvignes}, G. and {Cognard}, I. and {Champion}, D. and {Lazarus}, P., {Lespagnol}, P. and {Smith}, D.~A. and {Theureau}, G.},
+title   = {{SPAN512: A new mid-latitude pulsar survey with the Nan\c{c}ay Radio Telescope}},
+journal = {IAU Symposium 291, August 20th, 2012},
+url     = {http://arxiv.org/pdf/1211.3936v1.pdf}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://arxiv.org/pdf/1211.3936v1.pdf');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_55').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_56" class="well">  <!-- Popups 56 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@misc{Cooper:2014:lotaas1,
+author       = {{Cooper}, S.},
+title        = {{LOFAR Tied-Array All Sky Survey: Update on the Pulsar and Fast Transient Survey}},
+howpublished = {World Wide Web Accessed (20/10/2014), \newline \url{http://www.astron.nl/lofarscience2014/Documents/Tuesday/Session%20III/Cooper.pdf}},
+url          = {http://www.astron.nl/lofarscience2014/Documents/Tuesday/Session%20III/Cooper.pdf}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://www.astron.nl/lofarscience2014/Documents/Tuesday/Session%20III/Cooper.pdf');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_56').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+<div id="cite_pop_57" class="well"> <!-- Popups 57 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@misc{Cooper:2014:lotaas2,
+author       = {{Cooper}, S.},
+title        = {{LOFAR Tied-Array All Sky Survey: Update on the Pulsar and Fast Transient Survey}},
+howpublished = {World Wide Web Accessed (20/10/2014), \newline \url{http://www.lofar.org/operations/lib/exe/fetch.php?media=public:lsm_new:2014_04_02_cooper.pdf}},
+url          = {http://www.lofar.org/operations/lib/exe/fetch.php?media=public:lsm_new:2014_04_02_cooper.pdf}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://www.lofar.org/operations/lib/exe/fetch.php?media=public:lsm_new:2014_04_02_cooper.pdf');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_57').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+                    
+<div id="cite_pop_58" class="well">  <!-- Popups 58 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@misc{lwg:2014:lotaas3,
+author       = {{LOFAR Pulsar Working Group}},
+title        = {{Status update on LOTAAS and ms-pulsar observations}},
+howpublished = {World Wide Web Accessed (20/10/2014), \newline \url{http://www.lofar.org/wiki/lib/exe/fetch.php?media=public:lsm_new:2013_03_06_hesself.pdf}},
+url          = {http://www.lofar.org/wiki/lib/exe/fetch.php?media=public:lsm_new:2013_03_06_hesself.pdf}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://www.lofar.org/wiki/lib/exe/fetch.php?media=public:lsm_new:2013_03_06_hesself.pdf');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_58').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+                    
+<div id="cite_pop_59" class="well">  <!-- Popups 59 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@misc{Barr:2014:Superb,
+author       = {{Barr}, E.~D.},
+title        = {{Survey for Pulsars and Extra-galactic Radio Bursts}},
+journal      = {Extreme Astrophysics in an Ever-Changing Universe meeting, Crete, 2014},
+howpublished = {World Wide Web Accessed (20/10/2014), \newline \url{http://www3.mpifr-bonn.mpg.de/div/jhs/Program_files/EwanBarrCrete2014.pdf}},
+url          = {http://www3.mpifr-bonn.mpg.de/div/jhs/Program_files/EwanBarrCrete2014.pdf}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://www3.mpifr-bonn.mpg.de/div/jhs/Program_files/EwanBarrCrete2014.pdf');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_59').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+
+<div id="cite_pop_60" class="well">  <!-- Popups 60 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@misc{Bhattachatyya:2014:bs,
+author       = {{Bhattachatyya}, B.},
+title        = {{GMRT High Resolution southern sky (GHRSS) Survey for MSPs and transients}},
+journal      = {Transient Key science project meeting 2014},
+howpublished = {World Wide Web Accessed (20/10/2014), \newline \url{http://www.jb.man.ac.uk/meetings/transients2014/pdfs/Bhaswati.pdf}},
+url          = {http://www.jb.man.ac.uk/meetings/transients2014/pdfs/Bhaswati.pdf}
+}
+</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://www.jb.man.ac.uk/meetings/transients2014/pdfs/Bhaswati.pdf');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_60').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+
+<div id="cite_pop_61" class="well">  <!-- Popups 61 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Smits:2009:el,
+author  = {{Smits}, R. and {Lorimer}, D.~R. and {Kramer}, M. and {Manchester}, R. and {Stappers}, B. and {Jin}, C.~J. and {Nan}, R.~D. and {Li}, D.},
+title   = {{Pulsar science with the Five hundred metre Aperture Spherical Telescope}},
+journal = {A \&amp; A},
+year    = {2009},
+volume  = {505},
+number  = {2},
+pages   = {919-926},
+doi     = {10.1051/0004-6361/200911939},
+url     = {http://dx.doi.org/10.1051/0004-6361/200911939}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1051/0004-6361/200911939');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_61').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+<div id="cite_pop_62" class="well">  <!-- Popups 62 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Smits:2009:dc,
+author  = {{Smits}, R. and {Kramer}, M. and {Stappers}, B. and {Lorimer}, D.~R. and {Cordes}, J. and {Faulkner}, A.},
+title   = {{Pulsar searches and timing with the square kilometre array}},
+journal = {A \&amp; A},
+year    = {2009},
+volume  = {493},
+number  = {3},
+pages   = {1161-1170},
+doi     = {10.1051/0004-6361:200810383},
+url     = {http://dx.doi.org/10.1051/0004-6361:200810383}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1051/0004-6361:200810383');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_62').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+
+<div id="cite_pop_63" class="well">  <!-- Popups 63 -->
+    <h4>Citation</h4>
+<pre class="prettyprint">
+<code>@article{Lyon:2015:jk,
+author = {{Lyon}, R.~J. and {Stappers}, B.~W. and {Cooper}, S. and {Brooke}, J.~M. and {Knowles}, J.~D.},
+title = {{Fifty Years of Pulsar Candidate Selection: From simple
+filters to a new principled real-time classification approach}},
+journal = {Monthly Notices of the Royal Astronomical Society},
+year = {2015},
+volume = {000},
+number = {0},
+pages = {0000-0000}
+}</code>
+</pre>
+    <button class="fade_close fadeandscale_open btn btn-default" onclick="window.open('http://dx.doi.org/10.1051/0000-000000000');">Go to Cited Paper</button>
+    <button onclick="$('#cite_pop_63').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div> 
+                    
+<!-- Here the popups are initialised for use. If ading a new survey entry, and assuming you created a -->
+<!-- new popup div above, you must intialise the popup div here. SImply append a new entry on to the  -->
+<!-- end of this list.-->
+<script>
+$(document).ready(function () {
+
+    $('#cite_pop_1').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_2').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_3').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_4').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_5').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_6').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_7').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_8').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_9').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_10').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_11').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_12').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_13').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_14').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_15').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_16').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_17').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_18').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_19').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_20').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_21').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_22').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_23').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_24').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_25').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_26').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_27').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_28').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_29').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_30').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_31').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_32').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_33').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_34').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_35').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_36').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_37').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_38').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_39').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_40').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_41').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_42').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_43').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_44').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_45').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_46').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_47').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_48').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_49').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_50').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_51').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_52').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_53').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_54').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_55').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_56').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    $('#cite_pop_57').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    
+    $('#cite_pop_58').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    
+    $('#cite_pop_59').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    
+    $('#cite_pop_60').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    
+    $('#cite_pop_61').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    
+    $('#cite_pop_62').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+    
+    $('#cite_pop_63').popup({
+      transition: 'all 0.3s',
+      scrolllock: true
+    });
+});
+</script> 
+
+</body>
+
+</html>
