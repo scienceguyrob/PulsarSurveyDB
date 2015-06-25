@@ -168,7 +168,7 @@ There are a few images to choose from, select the most appropriate or add your o
 STEP 2. Adding a new reference popup.
         
 Each entry above has a link to a popup. A new popup has to created from each entry. All popups are
-actual divs (<div></div>) which describe the popup. These divs are invisible, until the user click
+actual ```divs (<div></div>)``` which describe the popup. These divs are invisible, until the user click
 a reference that corresponds to them.
     
 For instance, for the 1st Molonglo Survey, there is a link to the popup in an anchor element:
@@ -177,45 +177,49 @@ For instance, for the 1st Molonglo Survey, there is a link to the popup in an an
     
 When this is clicked, the following div is displayed:
 
-```<div id="cite_pop_1" class="well"> <!-- Popups 1 -->
-    <h4>Citation</h4>
-    <pre class="prettyprint">
-        <code>@article{Large:1968:mi,
-        author  = {{Large}, M.~I. and {Vaughan}, A.~E. and {Wielebinski}, R.},
-        title   = {{Pulsar Search at the Molonglo Radio Observatory}},
-        journal = {Nature},
-        year    = {1968},
-        volume  = {220},
-        pages   = {753-756},
-        doi     = {10.1038/220753a0},
-        url     = {http://dx.doi.org/10.1038/220753a0}
-        }</code>
-    </pre> <a target="_blank" href="http://dx.doi.org/10.1038/220753a0">
-        <button class="fade_close fadeandscale_open btn btn-default">Go to Cited Paper</button></a>
-        <button onclick="$('#cite_pop_1').popup('hide');" class="fade_close btn btn-default">Close</button>
-</div>```
+```
+<div id="cite_pop_1" class="well"> <!-- Popups 1 -->
+<h4>Citation</h4>
+<pre class="prettyprint">
+    <code>@article{Large:1968:mi,
+    author  = {{Large}, M.~I. and {Vaughan}, A.~E. and {Wielebinski}, R.},
+    title   = {{Pulsar Search at the Molonglo Radio Observatory}},
+    journal = {Nature},
+    year    = {1968},
+    volume  = {220},
+    pages   = {753-756},
+    doi     = {10.1038/220753a0},
+    url     = {http://dx.doi.org/10.1038/220753a0}
+    }</code>
+</pre> <a target="_blank" href="http://dx.doi.org/10.1038/220753a0">
+    <button class="fade_close fadeandscale_open btn btn-default">Go to Cited Paper</button></a>
+    <button onclick="$('#cite_pop_1').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+```
     
 This popup displays bibtex details for the references, and a button linking to the original paper.
 
 To add a new popup describing the imaginary "Rob 1" survey, we simply do the following:
     
-```<div id="cite_pop_2" class="well"> <!-- Popups 2 -->
-    <h4>Citation</h4>
-    <pre class="prettyprint">
-        <code>@article{Rob:2015:survey,
-        author  = {{Lyon}, R.~J.},
-        title   = {{An Amazing New Survey}},
-        journal = {Some Journal},
-        year    = {2015},
-        volume  = {1},
-        pages   = {1-5},
-        doi     = {00.0000/00000000},
-        url     = {http://dx.doi.org/00.0000/00000000}
-        }</code>
-    </pre> <a target="_blank" href="http://dx.doi.org/00.0000/00000000">
-        <button class="fade_close fadeandscale_open btn btn-default">Go to Cited Paper</button></a>
-        <button onclick="$('#cite_pop_2').popup('hide');" class="fade_close btn btn-default">Close</button>
-</div>```
+```
+<div id="cite_pop_2" class="well"> <!-- Popups 2 -->
+<h4>Citation</h4>
+<pre class="prettyprint">
+    <code>@article{Rob:2015:survey,
+    author  = {{Lyon}, R.~J.},
+    title   = {{An Amazing New Survey}},
+    journal = {Some Journal},
+    year    = {2015},
+    volume  = {1},
+    pages   = {1-5},
+    doi     = {00.0000/00000000},
+    url     = {http://dx.doi.org/00.0000/00000000}
+    }</code>
+</pre> <a target="_blank" href="http://dx.doi.org/00.0000/00000000">
+    <button class="fade_close fadeandscale_open btn btn-default">Go to Cited Paper</button></a>
+    <button onclick="$('#cite_pop_2').popup('hide');" class="fade_close btn btn-default">Close</button>
+</div>
+```
     
 Note the changes - "cite_pop_1" has become "cite_pop_2", the bibtex details have changed, and finally the link
 to the paper have altered so that,
@@ -231,7 +235,8 @@ STEP 3. Initialising the popops.
 The popups created above need to be initialised. This is done using java script. So for the 1st Molonglo survey,
 this is done simply via, 
 
-```<script>
+```
+<script>
     $(document).ready(function () {
 
     $('#cite_pop_1').popup({
@@ -244,7 +249,8 @@ this is done simply via,
 
 To intialise the popup for Rob 1, we simply add it here as follows:
 
-```<script>
+```
+<script>
     $(document).ready(function () {
 
     $('#cite_pop_1').popup({
