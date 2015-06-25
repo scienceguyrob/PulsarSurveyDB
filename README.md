@@ -68,8 +68,8 @@ Here is a shortened version of the table.
     </table>
 
 It contains one row describing the table headers, and one entry describing the Molongo survey. The
-first table data (<td></td>) entry describes the survey name. Here we see that listed as the "1st
-Molonglo Survey". Next to this, there is an anchor tag (<a></a>), inside two brackets i.e. [<a></a>].
+first table data (```<td></td>```) entry describes the survey name. Here we see that listed as the "1st
+Molonglo Survey". Next to this, there is an anchor tag (```<a></a>```), inside two brackets i.e. [```<a></a>```].
 This contains the reference to the survey, which opens a new popup with details of the references, e.g.
 
 ```<td>1st Molonglo Survey [<a href="#" onclick="$('#cite_pop_1').popup('show');">1</a>]</td>```
