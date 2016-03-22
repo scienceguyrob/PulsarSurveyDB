@@ -270,7 +270,17 @@ Simple!
 2. Citing this work
 
 	Please use the following citation if you make use of tool:
-	
+
+	@article{Lyon:2016:jk,
+    author  = {{Lyon}, R.~J. and {Stappers}, B.~W. and {Cooper}, S. and {Brooke}, J.~M. and {Knowles}, J.~D.},
+    title   = {{Fifty Years of Pulsar Candidate Selection: From simple
+    filters to a new principled real-time classification approach}},
+    journal = {Accepted for publication in MNRAS},
+    year    = {2016},
+    volume  = {astro-ph.IM}
+    url ={http://arxiv.org/abs/1603.05166}
+    }
+
 	@misc{PulsarSurveyDB,
 	author = {Lyon, R. J.},
 	title  = {{Pulsar Survey DB}},
