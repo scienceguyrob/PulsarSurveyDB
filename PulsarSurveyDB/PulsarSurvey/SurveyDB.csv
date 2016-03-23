@@ -29,8 +29,12 @@ Arecibo Survey 4 Phase II,Arecibo,1992,429,8,250,64,250,~40,1,?,-50° < b < -25�
 Parkes Southern Pulsar Survey,Parkes,1991-93,436,32,1250,256,300,157.3,1,44299,Entire southern hemisphere,~20626.5,853333.333333333,4,?,?,738,0,777,40000,210 MB per observation
 2nd Cambridge Survey,Interplanetary Scintillation Array,1993-94,81.5,?,?,256,256,?,?,?,-20° > δ > 86°,?,?,?,?,?,640,0,102.55,?,
 Jodrell Bank Millisecond Pulsar Survey,Lovell,1994-95,418,8,125,64,300,315,?,?,35° > δ > 90°,?,213333.333333333,1,?,?,182,0,770,?,
+A search for pulsars in supernova remnants,Lovell,1994-96,606,8,125,64,1000,2100,1,129,,?,64000,1,?,?,90,0,995,?,
 Green Bank fast pulsar survey,Green Bank,1994-96,370,40,78.125,512,256,134,?,?,77% of northern hemisphere,17400,2000000,1,0.25,?,512,0,20,?,4GB collected every 4.8 hours.
+The Effelsberg 1.4 GHz Medium Galactic Latitude Survey,Effelsberg,1994-2002,1395/1402/1408,10/20,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,
 Parkes Multibeam Pulsar Survey,Parkes,1997,1374,288,3000,96,250,2100,13,2670,|b| < 5° and 50° < l < 260°,1550,384000,1,0.64,?,325,0,2203,8000000,
+Bologna submillisecond pulsar survey,Northern Cross,1999,408,4,32,128,64,67,?,?,4° < δ < 42°,?,2000000,1,?,?,?,?,?,?,
+A 1400-MHz pilot search for young pulsars,Effelsberg,1998-99,1402,16,4000,4,500,2100,?,?,28° < l < 30° and |b| < 0.5°,2,8000,?,?,?,36,0,10000,?,
 Swinburne Intermediate-lat pulsar survey,Parkes,1998-99,1374,288,3000,96,125,265,13,4764,5° < b < 15° and -100° < l < 50°,1191,768000,1,?,1600,375,0,562.5,> 200000,Four pointings gives roughly 1 degree so 4764/4 = 1191. 30GB candidate data even after filtering. 1.6TB total data set.
 Parkes high-lat multibeam pulsar survey,Parkes,2000-03,1374,288,3000,96,125,265,13,6456,|b| < 60° and 220° < l < 260°,?,768000,1,?,?,?,0,1088,?,
 Survey of the Magellanic Clouds,Parkes,2000-01,1374,288,3000,96,1000,8400,13,209,Magellanic Clouds,?,96000,1,?,?,228,0,2200,?,"Different DM searches: 102 trials between 0 and 277 cm-3 (1 ms time res), 42 between 0 and 550 cm-3  (2 ms time res), 42 between 0 and 1100 cm-3  (4 ms time res), 42 between 0 and 2200 cm-3  (8 ms time res)."
